@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div className="Navbar">
       <div className="title-container">
-        <h1 className="title-text">ANALOG CLUB</h1>
+      <NavLink to ="/home" style={{ textDecoration: 'none' }} ><h1 className="title-text">ANALOG CLUB</h1></NavLink>
       </div>
       <div className="navbar-links">
         <div className="nav-container">

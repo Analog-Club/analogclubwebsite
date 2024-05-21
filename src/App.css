@@ -11,12 +11,14 @@
   line-height: 98px; /* 196% */
   letter-spacing: -3px;
   margin: 0;
+  text-decoration: none; /* Remove underline */
 }
 
 .nav-links {
   height: 52px;
   flex: 1 0 0;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
