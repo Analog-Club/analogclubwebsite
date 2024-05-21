@@ -1,38 +1,56 @@
-.App {
+/* Navbar */
+.title-text {
+  color: #000;
   text-align: center;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #000;
+  font-family: Futura;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 98px; /* 196% */
+  letter-spacing: -3px;
+  margin: 0;
+  text-decoration: none; /* Remove underline */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-links {
+  height: 52px;
+  flex: 1 0 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: #000;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 98px; /* 490% */
+  letter-spacing: -1.2px;
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-container {
+  height: 52px;
+  flex: 1 0 auto;
+  border: 1px solid #000; /* Add a border */
+  border-left: none; /* Remove left border to avoid double borders */
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-container:first-child {
+  border-left: 1px solid #000; /* Add left border to the first element */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
+
