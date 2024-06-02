@@ -9,18 +9,10 @@ function Navbar() {
       <NavLink to ="/home" style={{ textDecoration: 'none' }} ><h1 className="title-text">ANALOG CLUB</h1></NavLink>
       </div>
       <div className="navbar-links">
-        <div className="nav-container">
-          <NavLink to ="/gallery" className="nav-links" >GALLERY</NavLink>
-        </div>
-        <div className="nav-container">
-          <NavLink to ="/events" className="nav-links" >EVENTS</NavLink>
-        </div>
-        <div className="nav-container">
-          <NavLink to ="/resources" className="nav-links" >RESOURCES</NavLink>
-        </div>
-        <div className="nav-container">
-          <NavLink to ="/about" className="nav-links" >ABOUT US</NavLink>
-        </div>
+        <NavLink to ="/gallery" className="nav-links nav-container" >GALLERY</NavLink>
+        <NavLink to ="/events" className="nav-links nav-container" >EVENTS</NavLink>
+        <NavLink to ="/resources" className="nav-links nav-container" >RESOURCES</NavLink>
+        <NavLink to ="/about" className="nav-links nav-container" >ABOUT US</NavLink>
       </div>
     </div>
   );
