@@ -15,33 +15,34 @@
 }
 
 .nav-links {
-  height: 52px;
-  flex: 1 0 0;
+  height: 3rem;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
-  color: #000;
+  color: inherit;
   text-align: center;
   font-family: Helvetica;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 98px; /* 490% */
   letter-spacing: -1.2px;
   text-decoration: none; /* Remove underline */
 }
 
 .nav-container {
-  height: 52px;
+  color: black;
+  height: 3rem;
   flex: 1 0 auto;
   border: 1px solid #000; /* Add a border */
   border-left: none; /* Remove left border to avoid double borders */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
+}
+
+.nav-container:hover {
+  background-color: #000;
+  color: white;
 }
 
 .nav-container:first-child {
@@ -99,7 +100,7 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  letter-spacing: -1.2px;
+  letter-spacing: -0.05625rem;
   width: 100%;
 }
 
@@ -107,4 +108,52 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3rem;
+}
+
+/* resources */
+
+.resource-card-wrapper {
+  height: 25%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin-top: 3rem;
+
+}
+
+.resource-card-wrapper > img {
+  height: 25vw;
+  width: fill;
+  object-fit: cover;
+  object-position: 20% 20%;
+}
+
+.resource-card-text-wrapper {
+  text-align: center;
+  align-content: center;
+  padding: 0% 10% 0% 10%;
+}
+
+.resource-card-text-wrapper > * {
+  margin: 0.5rem;
+}
+
+/* may want to move these up top after merging all pages */
+h1 {
+  font-size: 3rem;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.1875rem;;
+}
+
+p {
+  font-size: 1.25rem;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.075rem;
 }
