@@ -33,7 +33,7 @@ export function GalleryCard(props) {
     const photoUrl = props.data[index].photoUrl
     return (
       <div className="gallery-card">
-          <img src={photoUrl} className="gallery-img"/>
+          <img src={photoUrl} alt ={photoName} className="gallery-img"/>
           <div className="gallery-label">
             <div>"{photoName.toUpperCase()}"</div>
           </div>

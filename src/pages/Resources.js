@@ -5,7 +5,7 @@ export function Resources() {
     return (
       <div>
         <div key={data[index]} className='resource-card-wrapper'>
-          <img src={data[index].photoUrl}/>
+          <img src={data[index].photoUrl} alt ={data[index].title}/>
           <div className='resource-card-text-wrapper'>
               <h1>
                 {data[index].title}

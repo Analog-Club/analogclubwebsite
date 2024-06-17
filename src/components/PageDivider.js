@@ -1,6 +1,5 @@
 import React from "react";
 import "../App.css";
-import { NavLink } from 'react-router-dom';
 
 export function PageDivider(props) {
     var text = props.name
