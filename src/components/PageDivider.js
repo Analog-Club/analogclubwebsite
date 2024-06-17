@@ -3,7 +3,11 @@ import "../App.css";
 import { NavLink } from 'react-router-dom';
 
 export function PageDivider(props) {
+    var text = props.name
+    if (text === undefined) {
+        text = ""
+    }
     return (
-        <div className="page-divider">{props.name.toUpperCase()}</div>
+        <div className="page-divider">{text.toUpperCase()}</div>
     )
 }

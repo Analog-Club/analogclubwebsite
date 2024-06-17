@@ -1,9 +1,6 @@
-function Gallery() {
+import { PageDivider } from "../components/PageDivider"
+export default function Events() {
   return (
-    <div className="Gallery">
-      
-    </div>
-  );
+    <PageDivider name="Coming soon"/>
+  )
 }
-
-export default Gallery;

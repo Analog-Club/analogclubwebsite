@@ -1,0 +1,12 @@
+{
+    "0": {
+        "title": "Gould Photo Lab",
+        "desc": "Film Developing and printing in the Gould Hall basement. Come by and Say hi! The lab fee is $25 with prior knowledge of film development or completion of arch 410",
+        "photoUrl": "images/gould_photo_lab.png"
+    },
+    "1": {
+        "title": "Arch 410",
+        "desc": "Introductory B&W film photography class at UW. Taught by Becky Reinbold",
+        "photoUrl": "images/arch_410.jpeg"
+    }
+}
