@@ -81,8 +81,8 @@
 }
 
 .gallery-img {
-  width: fill;
-  height: fill;
+  width: stretch;
+  height: stretch;
 }
 
 .gallery-label {
@@ -126,7 +126,7 @@
 
 .resource-card-wrapper > img {
   height: 25vw;
-  width: fill;
+  width: stretch;
   object-fit: cover;
   object-position: 20% 20%;
 }
