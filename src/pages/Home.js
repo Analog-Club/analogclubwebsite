@@ -1,8 +1,10 @@
 
+
+import { PageDivider } from "../components/PageDivider";
 function Home() {
   return (
     <div className="Home">
-
+      <PageDivider name="Thanks for checking us out! Our site is currently under development..."/>
     </div>
   );
 }
