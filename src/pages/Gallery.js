@@ -17,10 +17,11 @@ export function Gallery() {
 
   return (
     <div className="section">
-      <PageDivider name="Gallery"/>
+      <PageDivider name="Coming soon"/>
+      {/* <PageDivider name="Gallery"/>
       <div className="gallery-section">
         {galleryCardSections}
-      </div>
+      </div> */}
     </div>
   );
   
