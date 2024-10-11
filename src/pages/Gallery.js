@@ -4,7 +4,8 @@ export function Gallery() {
   const data = require('../data/gallery.json');
   console.log(data)
 
-  const galleryCardSections = Object.keys(data).map((index) => {
+  /* Isn't currently being used */
+  /*const galleryCardSections = Object.keys(data).map((index) => {
     return (
       <div key={data[index].photographerId}>
         <div className="gallery-card-wrapper">
@@ -13,7 +14,7 @@ export function Gallery() {
         </div>
       </div>
     )
-  })
+  }) */
 
   return (
     <div className="section">
