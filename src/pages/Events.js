@@ -10,8 +10,8 @@ export default function Events() {
     currEvent.style.border = "black 5px solid";
   }
   if (currEvent != undefined) {
-    if (currEvent.id == 31) {
-      eventDescWrapper = EventDesc({desc:'photowalk at gould', time:'6AM', date:'December 31st'})
+    if (currEvent.id == 31) { // 31 just temporary. we would have a list/map.keyset of all event dates instead.
+      eventDescWrapper = EventDesc({desc:'photowalk at gould', time:'6AM', date:'December 31st'}) // also just temp.
     }
   }
 
