@@ -5,7 +5,7 @@
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #000;
   font-family: Futura;
-  font-size: 50px;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 700;
   line-height: 98px; /* 196% */
@@ -15,14 +15,14 @@
 }
 
 .nav-links {
-  height: 3rem;
+  height: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: inherit;
   text-align: center;
   font-family: Helvetica;
-  font-size: 20px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -1.2px;
@@ -31,10 +31,9 @@
 
 .nav-container {
   color: black;
-  height: 3rem;
+  height: 2rem;
   flex: 1 0 auto;
-  border: 1px solid #000; /* Add a border */
-  border-left: none; /* Remove left border to avoid double borders */
+  border-left: black solid 1px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,8 +44,13 @@
   color: white;
 }
 
+.nav-container:active {
+  background-color: #000;
+  color: white;
+}
+
 .nav-container:first-child {
-  border-left: 1px solid #000; /* Add left border to the first element */
+  border-left: none;
 }
 
 .navbar-links {
@@ -54,6 +58,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #000; /* Add a border */
+  border-bottom: 1px solid #000; /* Add a border */
 }
 
 .page-divider {
@@ -156,4 +162,110 @@ p {
   font-style: normal;
   font-weight: 400;
   letter-spacing: -0.075rem;
+}
+
+/* calendar css */
+
+.day-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 5px;
+  height: 50px;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+  height: 5vw;
+  width: 5vw;
+}
+
+.day-card:hover {
+  text-decoration: underline;
+}
+
+.days-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 0.5fr);
+  grid-template-rows: repeat(5, 0.5fr);
+  list-style-type: none;
+  margin: none;
+  padding: 0;
+  height: 80%;
+}
+
+.full-calendar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-image {
+  width: 50%;
+}
+
+.calendar-image img {
+  width: 100%;
+}
+
+.month-header {
+  font-size: 8vh;
+  align-items: center;
+  margin: 5px;
+  letter-spacing: -1.2px;
+  text-align: center;
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6vw 6vw 0vw 6vw;
+  justify-content: space-between;
+}
+
+.calendar-right-panel {
+  width: 50%;
+}
+
+ul {
+  width: 100%;
+}
+
+.weekdays-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  list-style-type: none;
+  margin: none;
+  padding: 0;
+}
+
+.weekday-card {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-weight: bold;
+  font-size: 1.5vw;
+  letter-spacing: -1.2px;
+}
+
+.event-description-wrapper {
+  font-weight: bold;
+  height: 20%;
+
+  p {
+    font-size: 1rem;
+
+  }
+}
+
+
+.all-dates-wrapper {
+  height: 70%;
 }
