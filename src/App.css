@@ -110,6 +110,8 @@
   margin-bottom: 3rem;
 }
 
+/* events */
+
 /* resources */
 
 .resource-card-wrapper {
@@ -121,7 +123,6 @@
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   margin-top: 3rem;
-
 }
 
 .resource-card-wrapper > img {
@@ -157,3 +158,39 @@ p {
   font-weight: 400;
   letter-spacing: -0.075rem;
 }
+
+/* About Us Page */
+.page {
+  display: flex; /* Create a horizontal layout */
+  align-items: stretch; /* Stretch both sides to fill the height equally */
+  width: 100%; /* Ensure the container spans the full width of the page */
+}
+
+.image {
+  flex: 1; /* Make the image take up the entire left side */
+}
+
+.image img {
+  width: 100%; /* Ensure the image spans the full width of the container */
+  height: 100%; /* Stretch the image to fill the container */
+  object-fit: cover; /* Ensure the image scales without distortion */
+}
+
+.about {
+  flex: 1; /* Make the text take up the entire right side */
+  display: flex; /* Enable flexbox layout */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center text vertically within the section */
+  padding: 20px; /* Add padding inside the text section */
+}
+
+/* .about-card-wrapper {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+} */
+
+.about-card-wrapper h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
