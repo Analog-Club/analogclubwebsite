@@ -1,4 +1,4 @@
-import {PageDivider} from '../components/PageDivider'
+// import {PageDivider} from '../components/PageDivider'
 
 export function Gallery() {
   const data = require('../data/gallery.json');
