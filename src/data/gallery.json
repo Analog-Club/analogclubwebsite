@@ -1,200 +1,54 @@
 {
-    "socials": [
-      {
-        "social_id": 1,
-        "instagram": "@example_insta",
-        "facebook": "example_fb",
-        "website": "http://example.com",
-        "phone": "1234567890"
-      },
-      {
-        "social_id": 2,
-        "instagram": "@another_insta",
-        "facebook": "another_fb",
-        "website": "http://another.com",
-        "phone": "0987654321"
-      }
-    ],
-    "collections": [
-      {
-        "collection_id": 1,
-        "collection_name": "Spring Collection",
-        "collection_date": "2024-03-01"
-      },
-      {
-        "collection_id": 2,
-        "collection_name": "Summer Collection",
-        "collection_date": "2024-06-15"
-      }
-    ],
-    "minors": [
-      {
-        "minor_id": 1,
-        "minor_name": "Photography"
-      },
-      {
-        "minor_id": 2,
-        "minor_name": "Editing"
-      }
-    ],
-    "majors": [
-      {
-        "major_id": 1,
-        "major_name": "Visual Arts"
-      },
-      {
-        "major_id": 2,
-        "major_name": "Media Studies"
-      }
-    ],
-    "members": [
-      {
-        "member_id": 1,
-        "social_id": 1,
-        "minor_id": 1,
-        "major_id": 1,
-        "member_name": "Alice Smith",
-        "member_year": "2024",
-        "member_age": 22
-      },
-      {
-        "member_id": 2,
-        "social_id": 2,
-        "minor_id": 2,
-        "major_id": 2,
-        "member_name": "Bob Johnson",
-        "member_year": "2023",
-        "member_age": 21
-      }
-    ],
-    "donations": [
-      {
-        "donation_id": 1,
-        "member_id": 1,
-        "donor_name": "John Doe",
-        "donation_amount": 100.00,
-        "donation_date": "2024-10-01"
-      },
-      {
-        "donation_id": 2,
-        "member_id": 2,
-        "donor_name": "Jane Doe",
-        "donation_amount": 50.00,
-        "donation_date": "2024-10-02"
-      }
-    ],
-    "member_collections": [
-      {
-        "member_collection_id": 1,
-        "member_id": 1,
-        "collection_id": 1
-      },
-      {
-        "member_collection_id": 2,
-        "member_id": 2,
-        "collection_id": 2
-      }
-    ],
-    "locations": [
-      {
-        "location_id": 1,
-        "location_name": "Gallery A"
-      },
-      {
-        "location_id": 2,
-        "location_name": "Gallery B"
-      }
-    ],
-    "events": [
-      {
-        "event_id": 1,
-        "location_id": 1,
-        "event_name": "Art Showcase",
-        "event_date": "2024-05-10"
-      },
-      {
-        "event_id": 2,
-        "location_id": 2,
-        "event_name": "Photo Exhibition",
-        "event_date": "2024-07-20"
-      }
-    ],
-    "commissions": [
-      {
-        "commission_id": 1,
-        "commissioner": "Company X",
-        "commission_type": "Photography",
-        "commission_amount": 200.00
-      },
-      {
-        "commission_id": 2,
-        "commissioner": "Company Y",
-        "commission_type": "Editing",
-        "commission_amount": 150.00
-      }
-    ],
-    "brands": [
-      {
-        "brand_id": 1,
-        "brand_name": "Brand A"
-      },
-      {
-        "brand_id": 2,
-        "brand_name": "Brand B"
-      }
-    ],
-    "cameras": [
-      {
-        "camera_id": 1,
-        "brand_id": 1,
-        "camera_name": "Camera Model A",
-        "camera_year": 2020
-      },
-      {
-        "camera_id": 2,
-        "brand_id": 2,
-        "camera_name": "Camera Model B",
-        "camera_year": 2021
-      }
-    ],
-    "films": [
-      {
-        "film_id": 1,
-        "brand_id": 1,
-        "film_speed": 400,
-        "film_name": "Film Type A"
-      },
-      {
-        "film_id": 2,
-        "brand_id": 2,
-        "film_speed": 200,
-        "film_name": "Film Type B"
-      }
-    ],
-    "photos": [
-      {
-        "photo_id": 1,
-        "collection_id": 1,
-        "commission_id": 1,
-        "camera_id": 1,
-        "film_id": 1,
-        "event_id": 1,
-        "member_id": 1,
-        "photo_name": "Sunset",
-        "photo_date": "2024-03-05",
-        "photo_description": "A beautiful sunset photo"
-      },
-      {
-        "photo_id": 2,
-        "collection_id": 2,
-        "commission_id": 2,
-        "camera_id": 2,
-        "film_id": 2,
-        "event_id": 2,
-        "member_id": 2,
-        "photo_name": "Portrait",
-        "photo_date": "2024-06-20",
-        "photo_description": "A portrait of a model"
-      }
-    ]
-  }  
+    "0": {
+        "photographerId": 1,
+        "photographerName": "Caleb Lykken",
+        "folderId": 1,
+        "folderName": "Goat Lake",
+        "folderContent": {
+            "0": {
+                "photoUrl": "/images/2024-10-10-0003.jpg",
+                "photoName": ""
+            },
+            "1": {
+                "photoUrl": "/images/2024-10-10-0004.jpg",
+                "photoName": ""
+            },
+            "2": {
+                "photoUrl": "/images/2024-10-10-0005.jpg",
+                "photoName": ""
+            },
+            "3": {
+                "photoUrl": "/images/2024-10-10-0010.jpg",
+                "photoName": ""
+            },
+            "4": {
+                "photoUrl": "/images/2024-10-10-0016.jpg",
+                "photoName": ""
+            },
+            "5": {
+                "photoUrl": "/images/2024-10-10-0017.jpg",
+                "photoName": ""
+            }
+        }
+    },
+    "1": {
+        "photographerId": 0,
+        "photographerName": "Aaron",
+        "folderId": 0,
+        "folderName": "Birds",
+        "folderContent": {
+            "0": {
+                "photoUrl": "/images/birds1.png",
+                "photoName": ""
+            },
+            "1": {
+                "photoUrl": "/images/birds2.png",
+                "photoName": ""
+            },
+            "2": {
+                "photoUrl": "/images/birds3.png",
+                "photoName": ""
+            }
+        }
+    }
+}
