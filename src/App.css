@@ -117,8 +117,7 @@
 }
 
 .gallery-img {
-  width: stretch;
-  height: stretch;
+  width: 100%;
 }
 
 .gallery-label {
