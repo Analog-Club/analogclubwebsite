@@ -17,7 +17,7 @@
 
 //   const handleClick = (event) => {
 //     var d = document.getElementById(event.target.id);
-//     if (currEvent == undefined) {
+//     if (currEvent == undefineed) {
 //       setEvent(d);
 //     } else {
 //       currEvent.style.border = "none";
@@ -139,6 +139,8 @@
 import { PageDivider } from "../components/PageDivider"
 export default function Events() {
   return (
-    <PageDivider name="Coming soon"/> 
+    <div className="Events page">
+        <PageDivider name="Coming soon"/>
+    </div>
   )
 }

@@ -5,7 +5,7 @@ export function Gallery() {
   console.log(data)
 
   /* Isn't currently being used */
-  /*const galleryCardSections = Object.keys(data).map((index) => {
+  const galleryCardSections = Object.keys(data).map((index) => {
     return (
       <div key={data[index].photographerId}>
         <div className="gallery-card-wrapper">
@@ -14,7 +14,7 @@ export function Gallery() {
         </div>
       </div>
     )
-  }) */
+  })
 
   return (
     <div className="section page">
