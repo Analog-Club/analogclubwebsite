@@ -1,8 +1,7 @@
 # Python dependencies
 flask
 flask-alchemy
-flask-migrate
-flask-wtf
 flask-cors
+# flask-migrate
+# flask-wtf
 python-dotenv
-

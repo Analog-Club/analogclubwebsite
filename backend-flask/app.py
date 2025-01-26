@@ -1,10 +1,3 @@
-# from flask import Flask
-# from flask_cors import CORS
-# from routes.api import api_blueprint
-
-# app = Flask(__name__)
-# CORS(app)  # Allow cross-origin requests (for React frontend)
-
 from app import create_app
 
 # Creates app structure from app/__init__.py
