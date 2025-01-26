@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables and Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Database Tables and Data</h1>
+
+    <!-- Socials Table -->
+    <h2>Socials</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Social ID</th>
+                <th>Instagram</th>
+                <th>Facebook</th>
+                <th>Website</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for social in socials %}
+            <tr>
+                <td>{{ social.social_id }}</td>
+                <td>{{ social.instagram }}</td>
+                <td>{{ social.facebook }}</td>
+                <td>{{ social.website }}</td>
+                <td>{{ social.phone }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Members Table -->
+    <h2>Members</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Social ID</th>
+                <th>Minor ID</th>
+                <th>Major ID</th>
+                <th>Member Name</th>
+                <th>Member Year</th>
+                <th>Member Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.member_id }}</td>
+                <td>{{ member.social_id }}</td>
+                <td>{{ member.minor_id }}</td>
+                <td>{{ member.major_id }}</td>
+                <td>{{ member.member_name }}</td>
+                <td>{{ member.member_year }}</td>
+                <td>{{ member.member_age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Collections Table -->
+    <h2>Collections</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Collection ID</th>
+                <th>Collection Name</th>
+                <th>Collection Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for collection in collections %}
+            <tr>
+                <td>{{ collection.collection_id }}</td>
+                <td>{{ collection.collection_name }}</td>
+                <td>{{ collection.collection_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

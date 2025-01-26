@@ -1,0 +1,8 @@
+# Python dependencies
+flask
+flask-alchemy
+flask-migrate
+flask-wtf
+flask-cors
+python-dotenv
+

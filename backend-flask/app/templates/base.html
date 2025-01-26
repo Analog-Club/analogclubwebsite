@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Admin Flask App For Analog Club{% endblock %}</title>
+    <link rel="stylesheet" href="..//static/css/style.css">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+    <!-- blocks are replaced by blocks in other templates depending on web route -->
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <a href="https://analogclubuw.org/">Public Website</a>
+    </footer>
+</body>
+</html>
