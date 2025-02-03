@@ -13,6 +13,15 @@ class Social(db.Model):
 
     members = db.relationship('Member', backref='social', lazy=True)
 
+    def to_dict(self):
+        return {
+            "social_id": self.social_id,
+            "instagram": self.instagram,
+            "facebook": self.facebook,
+            "website": self.website,
+            "phone": self.phone
+        }
+
 
 # Collections Table
 class Collection(db.Model):
@@ -25,6 +34,13 @@ class Collection(db.Model):
     photos = db.relationship('Photo', backref='collection', lazy=True)
     member_collections = db.relationship('MemberCollection', backref='collection', lazy=True)
 
+    def to_dict(self):
+        return {
+            "collection_id": self.collection_id,
+            "collection_name": self.collection_name,
+            "collection_date": self.collection_date
+        }
+
 
 # Minors Table
 class Minor(db.Model):
@@ -35,6 +51,12 @@ class Minor(db.Model):
 
     members = db.relationship('Member', backref='minor', lazy=True)
 
+    def to_dict(self):
+        return {
+            "minor_id": self.minor_id,
+            "minor_name": self.minor_name
+        }
+
 
 # Majors Table
 class Major(db.Model):
@@ -44,6 +66,12 @@ class Major(db.Model):
     major_name = db.Column(db.String(100), nullable=False)
 
     members = db.relationship('Member', backref='major', lazy=True)
+
+    def to_dict(self):
+        return {
+            "major_id": self.major_id,
+            "major_name": self.major_name
+        }
 
 
 # Members Table
@@ -62,6 +90,17 @@ class Member(db.Model):
     photos = db.relationship('Photo', backref='member', lazy=True)
     member_collections = db.relationship('MemberCollection', backref='member', lazy=True)
 
+    def to_dict(self):
+        return {
+            "member_id": self.member_id,
+            "social_id": self.social_id,
+            "minor_id": self.minor_id,
+            "major_id": self.major_id,
+            "member_name": self.member_name,
+            "member_year": self.member_year,
+            "member_age": self.member_age
+        }
+
 
 # Donations Table
 class Donation(db.Model):
@@ -73,6 +112,15 @@ class Donation(db.Model):
     donation_amount = db.Column(db.Numeric(10, 2), nullable=False)
     donation_date = db.Column(db.DateTime, nullable=False)
 
+    def to_dict(self):
+        return {
+            "donation_id": self.donation_id,
+            "member_id": self.member_id,
+            "donor_name": self.donor_name,
+            "donation_amount": self.donation_amount,
+            "donation_date": self.donation_date
+        }
+
 
 # Member Collections Table
 class MemberCollection(db.Model):
@@ -81,6 +129,13 @@ class MemberCollection(db.Model):
     member_collection_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     member_id = db.Column(db.Integer, db.ForeignKey('members.member_id'))
     collection_id = db.Column(db.Integer, db.ForeignKey('collections.collection_id'))
+
+    def to_dict(self):
+        return {
+            "member_collection_id": self.member_collection_id,
+            "member_id": self.member_id,
+            "collection_id": self.collection_id
+        }
 
 
 # Locations Table
@@ -91,6 +146,12 @@ class Location(db.Model):
     location_name = db.Column(db.String(100), nullable=False)
 
     events = db.relationship('Event', backref='location', lazy=True)
+
+    def to_dict(self):
+        return {
+            "location_id": self.location_id,
+            "location_name": self.location_name
+        }
 
 
 # Events Table
@@ -104,6 +165,14 @@ class Event(db.Model):
 
     photos = db.relationship('Photo', backref='event', lazy=True)
 
+    def to_dict(self):
+        return {
+            "event_id": self.event_id,
+            "location_id": self.location_id,
+            "event_name": self.event_name,
+            "event_date": self.event_date
+        }
+
 
 # Commissions Table
 class Commission(db.Model):
@@ -116,6 +185,14 @@ class Commission(db.Model):
 
     photos = db.relationship('Photo', backref='commission', lazy=True)
 
+    def to_dict(self):
+        return {
+            "commission_id": self.commission_id,
+            "commissioner": self.commissioner,
+            "commission_type": self.commission_type,
+            "commission_amount": self.commission_amount
+        }
+
 
 # Brands Table
 class Brand(db.Model):
@@ -126,6 +203,12 @@ class Brand(db.Model):
 
     cameras = db.relationship('Camera', backref='brand', lazy=True)
     films = db.relationship('Film', backref='brand', lazy=True)
+
+    def to_dict(self):
+        return {
+            "brand_id": self.brand_id,
+            "brand_name": self.brand_name
+        }
 
 
 # Cameras Table
@@ -139,6 +222,14 @@ class Camera(db.Model):
 
     photos = db.relationship('Photo', backref='camera', lazy=True)
 
+    def to_dict(self):
+        return {
+            "camera_id": self.camera_id,
+            "brand_id": self.brand_id,
+            "camera_name": self.camera_name,
+            "camera_year": self.camera_year
+        }
+
 
 # Films Table
 class Film(db.Model):
@@ -150,6 +241,14 @@ class Film(db.Model):
     film_name = db.Column(db.String(100), nullable=False)
 
     photos = db.relationship('Photo', backref='film', lazy=True)
+
+    def to_dict(self):
+        return {
+            "film_id": self.film_id,
+            "brand_id": self.brand_id,
+            "film_speed": self.film_speed,
+            "film_name": self.film_name
+        }
 
 
 # Photos Table
@@ -167,3 +266,18 @@ class Photo(db.Model):
     photo_path = db.Column(db.String(100), nullable=False)
     photo_date = db.Column(db.Date, nullable=False)
     photo_description = db.Column(db.String(200))
+
+    def to_dict(self):
+        return {
+            "photo_id": self.photo_id,
+            "collection_id": self.collection_id,
+            "commission_id": self.commission_id,
+            "camera_id": self.camera_id,
+            "film_id": self.film_id,
+            "event_id": self.event_id,
+            "member_id": self.member_id,
+            "photo_name": self.photo_name,
+            "photo_path": self.photo_path,
+            "photo_date": self.photo_date,
+            "photo_description": self.photo_description
+        }

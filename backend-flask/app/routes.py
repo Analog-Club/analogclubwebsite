@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
 from .models import Social, Member, Collection  # Import your models
 
 # Ties web routes to html templates
 main = Blueprint('main', __name__)
+api = Blueprint('api', __name__, url_prefix='/api')
 
 @main.route('/')
 def index():
@@ -22,6 +23,25 @@ def show_tables():
 
     # Pass data to the template
     return render_template('show_tables.html', socials=socials, members=members, collections=collections)
+
+
+# API routes
+
+@api.route('/socials', methods=['GET'])
+def get_socials():
+    socials = Social.query.all()
+    return jsonify([social.to_dict() for social in socials])
+
+@api.route('/members', methods=['GET'])
+def get_members():
+    members = Member.query.all()
+    print(members)
+    return jsonify([member.to_dict() for member in members])
+
+@api.route('/collections', methods=['GET'])
+def get_collections():
+    collections = Collection.query.all()
+    return jsonify([collection.to_dict() for collection in collections])
 
 # @app.route('/user/<name>')
 # def user(name):

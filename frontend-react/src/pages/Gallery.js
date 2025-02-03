@@ -1,4 +1,5 @@
 // import {PageDivider} from '../components/PageDivider'
+import FlaskTable from '../components/FlaskTable'
 
 export function Gallery() {
   const data = require('../data/gallery.json');
@@ -20,6 +21,7 @@ export function Gallery() {
     <div className="section page">
       {/* <PageDivider name="Coming soon"/> */}
       {/* <PageDivider name="Gallery"/> */}
+      <FlaskTable />
       <div className="gallery-section">
         {galleryCardSections}
       </div>

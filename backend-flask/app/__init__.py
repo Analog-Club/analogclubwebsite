@@ -16,7 +16,8 @@ def create_app():
     db.init_app(app)
     # migrate.init_app(app, db)
 
-    from app.routes import main
+    from app.routes import main, api
     app.register_blueprint(main)
+    app.register_blueprint(api)
 
     return app
