@@ -2,6 +2,9 @@
 flask
 flask-alchemy
 flask-cors
-# flask-migrate
-# flask-wtf
 python-dotenv
+
+# flask-migrate is for database migrations
+# flask-migrate
+# flask-wtf is for forms
+# flask-wtf
