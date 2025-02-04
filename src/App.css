@@ -1,28 +1,30 @@
 /* Navbar */
 .title-text {
-  color: #000;
+  font-family: Futura, Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+  -webkit-text-stroke: 1px black;
+  paint-order: stroke fill;
+  letter-spacing: -1px;
+  font-size: 3vh;
   text-align: center;
-  -webkit-text-stroke-width: 1;
-  -webkit-text-stroke-color: #000;
-  font-family: Futura;
-  font-size: 50px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 98px; /* 196% */
-  letter-spacing: -3px;
-  margin: 0;
-  text-decoration: none; /* Remove underline */
+}
+
+.title-container {
+  height: 6vh;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-links {
-  height: 3rem;
+  height: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: inherit;
   text-align: center;
   font-family: Helvetica;
-  font-size: 20px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   letter-spacing: -1.2px;
@@ -31,10 +33,9 @@
 
 .nav-container {
   color: black;
-  height: 3rem;
+  height: 2rem;
   flex: 1 0 auto;
-  border: 1px solid #000; /* Add a border */
-  border-left: none; /* Remove left border to avoid double borders */
+  border-left: black solid 1px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,15 +46,23 @@
   color: white;
 }
 
+.nav-container:active {
+  background-color: #000;
+  color: white;
+}
+
 .nav-container:first-child {
-  border-left: 1px solid #000; /* Add left border to the first element */
+  border-left: none;
 }
 
 .navbar-links {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #000; /* Add a border */
+  border-bottom: 1px solid #000; /* Add a border */
 }
 
 .page-divider {
@@ -70,6 +79,33 @@
   letter-spacing: -1.2px;
 }
 
+/* footer */
+
+.footer {
+  color: black;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-top: solid black 1px;
+  justify-content: center;
+}
+
+.social-icons {
+  /* margin-top: 0.5em; */
+  /* position: right; */
+}
+
+.social-icons a {
+  color: #000;
+  margin: 2rem;
+  font-size: 1rem;
+}
+
+.social-icons a:hover {
+  color: #EF1E1E;
+}
+
+
 /* gallery */
 
 .gallery-card {
@@ -81,8 +117,7 @@
 }
 
 .gallery-img {
-  width: stretch;
-  height: stretch;
+  width: 100%;
 }
 
 .gallery-label {
@@ -159,6 +194,7 @@ p {
   letter-spacing: -0.075rem;
 }
 
+
 /* About Us Page */
 .page {
   display: flex; /* Create a horizontal layout */
@@ -193,4 +229,228 @@ p {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
+
+/* calendar css */
+
+.day-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 5px;
+  height: 50px;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+  height: 5vw;
+  width: 5vw;
+}
+
+.day-card:hover {
+  text-decoration: underline;
+}
+
+.days-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 0.5fr);
+  grid-template-rows: repeat(5, 0.5fr);
+  list-style-type: none;
+  margin: none;
+  padding: 0;
+  height: 80%;
+}
+
+.full-calendar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-image {
+  width: 50%;
+}
+
+.calendar-image img {
+  width: 100%;
+}
+
+.month-header {
+  font-size: 8vh;
+  align-items: center;
+  margin: 5px;
+  letter-spacing: -1.2px;
+  text-align: center;
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6vw 6vw 0vw 6vw;
+  justify-content: space-between;
+}
+
+.calendar-right-panel {
+  width: 50%;
+}
+
+ul {
+  width: 100%;
+}
+
+.weekdays-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  list-style-type: none;
+  margin: none;
+  padding: 0;
+}
+
+.weekday-card {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-weight: bold;
+  font-size: 1.5vw;
+  letter-spacing: -1.2px;
+}
+
+.event-description-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  height: 20%;
+  align-items: center;
+
+  p {
+    font-size: 1rem;
+
+  }
+}
+
+
+.all-dates-wrapper {
+  height: 70%;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+/* Mobile styles (default) */
+@media (max-width:768px)  {
+  .gallery-card {
+    width: 100%;
+    /* margin:20px; */
+  }
+
+  .gallery-card-wrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .gallery-img {
+    width: 100%;
+  }
+  .title-text {
+    font-size: 2vh;
+
+  }
+  .title-container {
+    height: 4vh;
+  }
+  .navbar-links {
+    a {
+      font-size: 0.8rem;
+    }
+
+  }
+
+  .nav-container {
+    height: 1.5rem;
+  }
+
+  .gallery-section {
+    margin-top: 5vh;
+  }
+
+  .full-calendar {
+    max-width: 768px;
+    flex-wrap: wrap;
+  }
+
+  .calendar-image {
+    width: 100%;
+    display: none;
+  }
+
+  .calendar-right-panel {
+    width: 100%;
+  }
+
+
+  /* div {
+      max-width: 768px;
+      margin: 0 auto;
+  }
+
+  .header, .content, .footer {
+      padding: 20px;
+  } */
+}
+/* @media (max-width: 768px) {
+  .header, .content, .footer {
+    padding: 10px;
+    text-align: center;
+    }
+    div {
+        max-width: 760px;
+        margin: 0 auto;
+    }
+} */
+
+
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width:1024px)  {
+  .gallery-card {
+    width: 45%;
+  }
+  /* div {
+      max-width: 768px;
+      margin: 0 auto;
+  }
+
+  .header, .content, .footer {
+      padding: 20px;
+  } */
+}
+
+/* Laptop styles */
+@media (min-width: 1024px) {
+  /* div {
+      max-width: 1024px;
+      margin: 0 auto;
+  }
+
+  .header, .content, .footer {
+      padding: 30px;
+  } */
+}
+
+/* Desktop styles */
+/* @media (min-width: 1200px) {
+  div {
+      margin: 0 auto;
+  } */
+
+  /* .header, .content, .footer {
+      padding: 40px;
+  } */
+/* } */
 

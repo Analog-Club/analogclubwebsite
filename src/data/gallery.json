@@ -1,45 +1,53 @@
 {
     "0": {
-        "photographerId": 0,
-        "photographerName": "Aaron Sample1",
-        "folderId": 0,
-        "folderName": "Birds1",
+        "photographerId": 1,
+        "photographerName": "Caleb Lykken",
+        "folderId": 1,
+        "folderName": "Goat Lake",
         "folderContent": {
             "0": {
-                "photoUrl": "/images/birds1.png",
-                "photoName": "Birds 1"
+                "photoUrl": "/images/2024-10-10-0003.jpg",
+                "photoName": ""
             },
             "1": {
-                "photoUrl": "/images/birds2.png",
-                "photoName": "Birds 2"
+                "photoUrl": "/images/2024-10-10-0004.jpg",
+                "photoName": ""
             },
             "2": {
-                "photoUrl": "/images/birds3.png",
-                "photoName": "Birds 3"
+                "photoUrl": "/images/2024-10-10-0005.jpg",
+                "photoName": ""
+            },
+            "3": {
+                "photoUrl": "/images/2024-10-10-0010.jpg",
+                "photoName": ""
+            },
+            "4": {
+                "photoUrl": "/images/2024-10-10-0016.jpg",
+                "photoName": ""
+            },
+            "5": {
+                "photoUrl": "/images/2024-10-10-0017.jpg",
+                "photoName": ""
             }
         }
     },
     "1": {
-        "photographerId": 1,
-        "photographerName": "Aaron Sample2",
-        "folderId": 1,
-        "folderName": "Birds2",
+        "photographerId": 0,
+        "photographerName": "Aaron",
+        "folderId": 0,
+        "folderName": "Birds",
         "folderContent": {
             "0": {
-                "photoUrl": "/images/birds3.png",
-                "photoName": "Birds 3"
+                "photoUrl": "/images/birds1.png",
+                "photoName": ""
             },
             "1": {
                 "photoUrl": "/images/birds2.png",
-                "photoName": "Birds 2"
+                "photoName": ""
             },
             "2": {
-                "photoUrl": "/images/birds1.png",
-                "photoName": "Birds 1"
-            },
-            "3": {
                 "photoUrl": "/images/birds3.png",
-                "photoName": "Birds 4"
+                "photoName": ""
             }
         }
     }
