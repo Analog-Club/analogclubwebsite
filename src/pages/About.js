@@ -3,7 +3,7 @@ export function About() {
 
   const aboutCardList = Object.keys(data).map((index) => {
     return (
-      <div key={data[index]} className="about">  
+      <div key={data[index]} className="about-description">  
         <div className="text">
           <div className="about-card-wrapper">
             <div className="about-card-text-wrapper">
@@ -17,9 +17,9 @@ export function About() {
   });
 
   return (
-    <div className="page"> 
+    <div className="about-page"> 
       {/* Left Side: Image */}
-      <div className="image">
+      <div className="about-image">
         <img 
           src="images/spaceneedle.png" 
           alt="Space Needle" 
@@ -27,11 +27,9 @@ export function About() {
       </div>
 
       {/* Right Side: Description */}
-      <div className="about">
+      <div className="about-description">
         {aboutCardList}
       </div>
     </div>
   );
 }
-
-export default About;

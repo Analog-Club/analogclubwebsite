@@ -196,23 +196,23 @@ p {
 
 
 /* About Us Page */
-.page {
+.about-page {
   display: flex; /* Create a horizontal layout */
   align-items: stretch; /* Stretch both sides to fill the height equally */
   width: 100%; /* Ensure the container spans the full width of the page */
 }
 
-.image {
+.about-image {
   flex: 1; /* Make the image take up the entire left side */
 }
 
-.image img {
+.about-image img {
   width: 100%; /* Ensure the image spans the full width of the container */
   height: 100%; /* Stretch the image to fill the container */
   object-fit: cover; /* Ensure the image scales without distortion */
 }
 
-.about {
+.about-description {
   flex: 1; /* Make the text take up the entire right side */
   display: flex; /* Enable flexbox layout */
   flex-direction: column; /* Stack items vertically */
