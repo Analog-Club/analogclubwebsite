@@ -307,6 +307,27 @@ ul {
   min-height: 100vh;
 }
 
+/* shows event on card */
+.day-card.has-event {
+  position: relative;
+}
+
+.event-indicator {
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #EF1E1E;  /* Red dot indicator */
+  font-size: 1.5em;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+ /* Hide the dot when day is selected */
+.day-card.selected .event-indicator {
+  opacity: 0;
+}
+
 /* Mobile styles (default) */
 @media (max-width:768px)  {
   .gallery-card {

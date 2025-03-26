@@ -1,101 +1,146 @@
 import { PageDivider } from "../components/PageDivider"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import useGoogleCalendar from '../components/GoogleCalendar';
 
 export default function Events() {
-  // for keeping track of clicked day *************
-  const [currEvent, setEvent] = useState(undefined);
+  const [currEvent, setEvent] = useState(null);
+  const { events, error } = useGoogleCalendar();
+  const [monthEvents, setMonthEvents] = useState({});
+  const [selectedDay, setSelectedDay] = useState(null);
   let eventDescWrapper = [];
+
+  // Convert Google Calendar events to monthEvents format when events change
+  useEffect(() => {
+    if (events) {
+      const formattedEvents = events.reduce((acc, event) => {
+        const date = new Date(event.start.dateTime || event.start.date);
+        const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
+        const day = date.getDate();
+        
+        if (!acc[month]) {
+          acc[month] = {};
+        }
+        
+        acc[month][day] = {
+          name: event.summary,
+          day: day,
+          month: date.getMonth() + 1,
+          year: date.getFullYear(),
+          description: event.description || '',
+          time: date.toLocaleTimeString('en-US', { 
+            hour: 'numeric', 
+            minute: '2-digit',
+            hour12: true 
+          })
+        };
+        return acc;
+      }, {});
+      
+      setMonthEvents(formattedEvents);
+    }
+  }, [events]);
 
   if (currEvent != undefined) {
     currEvent.style.border = "black 5px solid";
-  }
-  if (currEvent != undefined) {
-    if (currEvent.id == 31) { // 31 just temporary. we would have a list/map.keyset of all event dates instead.
-      eventDescWrapper = EventDesc({desc:'photowalk at gould', time:'6AM', date:'December 31st'}) // also just temp.
+    
+    // Check if there's an event on the selected day
+    const selectedDay = parseInt(currEvent.id);
+    const selectedMonth = new Date().toLocaleString('default', { month: 'long' }).toLowerCase();
+    
+    if (monthEvents[selectedMonth] && monthEvents[selectedMonth][selectedDay]) {
+      const event = monthEvents[selectedMonth][selectedDay];
+      eventDescWrapper = EventDesc({
+        desc: event.name,
+        time: event.time,
+        date: `${selectedMonth} ${selectedDay}`
+      });
     }
   }
 
   const handleClick = (event) => {
     var d = document.getElementById(event.target.id);
+    const clickedDay = parseInt(event.target.id);
+
     if (currEvent == undefined) {
       setEvent(d);
+      setSelectedDay(clickedDay);
     } else {
       currEvent.style.border = "none";
       if (d == currEvent) {
         setEvent(undefined);
+        setSelectedDay(null);
       } else {
         setEvent(d);
+        setSelectedDay(clickedDay);
       }
     }
   }
 
-  // end of keeping track of clicked day ***********
-  
   // Creation of current month's calendar
   let date = new Date();
   let currMonth = date.toLocaleString('default', { month: 'long' }).toUpperCase();
-  let monthEvents = {'december': {'name': 'photowalk', 'day': 17, 'month': 12, 'year': 2024}}; // would be filled in with API and does not need to be the same structure of data as shown here (we would just need to alter code little bit no worries)
-  let dayCount = 31; // would be filled in with API
-  let dayCards = Object.keys(monthEvents).map((key => {
-    return (
-      <div class='resource-card-wrapper'>
-        {key}, {monthEvents[key].name}
-      </div>
-    )
-  }))
-  let monthframe = []
-  for (let i = 1; i <= dayCount; i++) {
-    monthframe.push(
+  
+  // Get number of days in current month
+  let dayCount = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 
-      <div class='resource-card-wrapper'>
-        {i}
-      </div>
-    )
+  // Show error if API fails
+  if (error) {
+    return <div>Error loading calendar events: {error}</div>;
   }
 
   return (
     <div className='full-calendar'>
-          <div className='calendar-image'>
-            <img src='images/sunrise.png'></img>
+      <div className='calendar-image'>
+        <img src='images/sunrise.png' alt="Calendar header"></img>
+      </div>
+      <div className='calendar-right-panel'>
+        <div className='calendar-wrapper'>
+          <div className='all-dates-wrapper'>
+            <h1 className='month-header'>
+              {currMonth}
+            </h1>
+            <CalHeader/>
+            <DayGrid 
+              days={dayCount} 
+              handleClick={handleClick}
+              events={monthEvents[currMonth.toLowerCase()]}
+              selectedDay={selectedDay}
+            />
           </div>
-          <div className='calendar-right-panel'>
-            <div className='calendar-wrapper'>
-              <div className='all-dates-wrapper'>
-                <h1 className='month-header'>
-                  {currMonth}
-                </h1>
-                <CalHeader/>
-                <DayGrid days={dayCount} handleClick={handleClick}/>
-              </div>
-              {eventDescWrapper}
-            </div>
-          </div>
+          {eventDescWrapper}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-// Creates the grid of days for each day in the given month
-// Currently does not match the exact weekday with the day numbers (ex. dec 1st is not on a sunday)
-// Params: 
-// - days: number of days in the current month
+// Function to display event indicators
 export function DayGrid(props) {
-
   let dayCount = props.days;
-  let dayList = []
+  let dayList = [];
+
   for (let day = 1; day <= dayCount; day++) {
+    const hasEvent = props.events && props.events[day];
+    const isSelected = props.selectedDay === day;
     dayList.push(
-      <button key={day} id={day} className='day-card' onClick={props.handleClick}>
+      <button 
+        key={day} 
+        id={day} 
+        className={`day-card ${hasEvent ? 'has-event' : ''} ${isSelected ? 'selected' : ''}`}
+        onClick={props.handleClick}
+      >
         {day}
+        {hasEvent && <span className="event-indicator">•</span>}
       </button>
-    )
+    );
   }
+  
   return (
     <ul className='days-wrapper'>
       {dayList}
     </ul>
-  )
+  );
 }
-
 
 // Creates the header for the calendar (sun-sat)
 export function CalHeader() {
