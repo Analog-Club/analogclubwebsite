@@ -101,7 +101,7 @@ export default function Events() {
             </h1>
             <CalHeader/>
             <DayGrid 
-              days={dayCount} 
+              days={dayCount}
               handleClick={handleClick}
               events={monthEvents[currMonth.toLowerCase()]}
               selectedDay={selectedDay}
@@ -114,18 +114,27 @@ export default function Events() {
   );
 }
 
-// Function to display event indicators
 export function DayGrid(props) {
   let dayCount = props.days;
   let dayList = [];
+
+  const date = new Date();
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  const firstDayIndex = firstDayOfMonth.getDay();
+
+  for (let i = 0; i < firstDayIndex; i++) {
+    dayList.push(
+      <div key={`empty-${i}`} className="day-card empty"></div>
+    );
+  }
 
   for (let day = 1; day <= dayCount; day++) {
     const hasEvent = props.events && props.events[day];
     const isSelected = props.selectedDay === day;
     dayList.push(
-      <button 
-        key={day} 
-        id={day} 
+      <button
+        key={day}
+        id={day}
         className={`day-card ${hasEvent ? 'has-event' : ''} ${isSelected ? 'selected' : ''}`}
         onClick={props.handleClick}
       >
@@ -134,7 +143,7 @@ export function DayGrid(props) {
       </button>
     );
   }
-  
+
   return (
     <ul className='days-wrapper'>
       {dayList}

@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 
-// Get these from your environment variables
-const API_KEY = 'AIzaSyA4mQRGc8OjNBsPQnsCLtSvFw1vtT89zZg';
-const CALENDAR_ID = 'c_6c3850e7df7bdb6caa9d99dfae53478904a0baeaf467cb693aa733d31b4c23d4@group.calendar.google.com';
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+const CALENDAR_ID = process.env.REACT_APP_CALENDAR_ID;
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
 
 export function useGoogleCalendar() {

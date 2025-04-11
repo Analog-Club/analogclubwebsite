@@ -221,8 +221,8 @@ p {
 
 .days-wrapper {
   display: grid;
-  grid-template-columns: repeat(7, 0.5fr);
-  grid-template-rows: repeat(5, 0.5fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, auto);
   list-style-type: none;
   margin: none;
   padding: 0;
@@ -326,6 +326,15 @@ ul {
  /* Hide the dot when day is selected */
 .day-card.selected .event-indicator {
   opacity: 0;
+}
+
+.day-card.empty {
+  background: none;
+  cursor: default;
+}
+
+.day-card.empty:hover {
+  text-decoration: none;
 }
 
 /* Mobile styles (default) */
