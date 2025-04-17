@@ -257,8 +257,8 @@ p {
 
 .days-wrapper {
   display: grid;
-  grid-template-columns: repeat(7, 0.5fr);
-  grid-template-rows: repeat(5, 0.5fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, auto);
   list-style-type: none;
   margin: none;
   padding: 0;
@@ -341,6 +341,36 @@ ul {
 
 .page {
   min-height: 100vh;
+}
+
+/* shows event on card */
+.day-card.has-event {
+  position: relative;
+}
+
+.event-indicator {
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #EF1E1E;  /* Red dot indicator */
+  font-size: 1.5em;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+ /* Hide the dot when day is selected */
+.day-card.selected .event-indicator {
+  opacity: 0;
+}
+
+.day-card.empty {
+  background: none;
+  cursor: default;
+}
+
+.day-card.empty:hover {
+  text-decoration: none;
 }
 
 /* Mobile styles (default) */
