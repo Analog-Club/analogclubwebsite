@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-import { PageDivider } from "../components/PageDivider"
->>>>>>> 1db8118d74d42f9752a49e0c28166029ff33a60f
 import React, { useState, useEffect } from 'react';
 import useGoogleCalendar from '../components/GoogleCalendar';
 
@@ -75,11 +71,7 @@ export default function Events() {
   }, [events]);
 
   if (currEvent != undefined) {
-<<<<<<< HEAD
     currEvent.style.border = "black 0.45vw solid";
-=======
-    currEvent.style.border = "black 5px solid";
->>>>>>> 1db8118d74d42f9752a49e0c28166029ff33a60f
     
     // Check if there's an event on the selected day
     const selectedDay = parseInt(currEvent.id);
