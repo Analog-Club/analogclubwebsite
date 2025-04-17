@@ -70,7 +70,7 @@ export default function Events() {
     }
   }, [events]);
 
-  if (currEvent != undefined) {
+  if (currEvent !== undefined) {
     currEvent.style.border = "black 0.45vw solid";
     
     // Check if there's an event on the selected day
@@ -90,13 +90,13 @@ export default function Events() {
   const handleClick = (event) => {
     var d = document.getElementById(event.target.id);
     const clickedDay = parseInt(event.target.id);
-    if (currEvent == undefined) {
+    if (currEvent === undefined) {
       setEvent(d);
       setSelectedDay(clickedDay);
       setSelectedDay(clickedDay);
     } else {
       currEvent.style.border = "none";
-      if (d == currEvent) {
+      if (d === currEvent) {
         setEvent(undefined);
         setSelectedDay(null);
         setSelectedDay(null);

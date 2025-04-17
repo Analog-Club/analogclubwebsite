@@ -1,6 +1,5 @@
 
 
-import { PageDivider } from "../components/PageDivider";
 import React from 'react'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -31,7 +30,6 @@ function Home() {
 
   const OPTIONS = { loop: true }
   const SLIDE_COUNT = 5
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
   console.log(Array.from(Array(SLIDE_COUNT).keys()))
   return (
     <div className="home-page">
