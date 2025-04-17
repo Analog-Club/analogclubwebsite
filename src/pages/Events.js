@@ -6,7 +6,42 @@ export default function Events() {
   const { events, error } = useGoogleCalendar();
   const [monthEvents, setMonthEvents] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
+  const [currEvent, setEvent] = useState(null);
+  const { events, error } = useGoogleCalendar();
+  const [monthEvents, setMonthEvents] = useState({});
+  const [selectedDay, setSelectedDay] = useState(null);
   let eventDescWrapper = [];
+
+  // Convert Google Calendar events to monthEvents format when events change
+  useEffect(() => {
+    if (events) {
+      const formattedEvents = events.reduce((acc, event) => {
+        const date = new Date(event.start.dateTime || event.start.date);
+        const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
+        const day = date.getDate();
+        
+        if (!acc[month]) {
+          acc[month] = {};
+        }
+        
+        acc[month][day] = {
+          name: event.summary,
+          day: day,
+          month: date.getMonth() + 1,
+          year: date.getFullYear(),
+          description: event.description || '',
+          time: date.toLocaleTimeString('en-US', { 
+            hour: 'numeric', 
+            minute: '2-digit',
+            hour12: true 
+          })
+        };
+        return acc;
+      }, {});
+      
+      setMonthEvents(formattedEvents);
+    }
+  }, [events]);
 
   // Convert Google Calendar events to monthEvents format when events change
   useEffect(() => {
@@ -60,24 +95,37 @@ export default function Events() {
     var d = document.getElementById(event.target.id);
     const clickedDay = parseInt(event.target.id);
 
+    const clickedDay = parseInt(event.target.id);
+
     if (currEvent == undefined) {
       setEvent(d);
+      setSelectedDay(clickedDay);
       setSelectedDay(clickedDay);
     } else {
       currEvent.style.border = "none";
       if (d == currEvent) {
         setEvent(undefined);
         setSelectedDay(null);
+        setSelectedDay(null);
       } else {
         setEvent(d);
+        setSelectedDay(clickedDay);
         setSelectedDay(clickedDay);
       }
     }
   }
 
+
   // Creation of current month's calendar
   let date = new Date();
   let currMonth = date.toLocaleString('default', { month: 'long' }).toUpperCase();
+  
+  // Get number of days in current month
+  let dayCount = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+
+  // Show error if API fails
+  if (error) {
+    return <div>Error loading calendar events: {error}</div>;
   
   // Get number of days in current month
   let dayCount = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
@@ -109,7 +157,28 @@ export default function Events() {
           {eventDescWrapper}
         </div>
       </div>
+      <div className='calendar-image'>
+        <img src='images/sunrise.png' alt="Calendar header"></img>
+      </div>
+      <div className='calendar-right-panel'>
+        <div className='calendar-wrapper'>
+          <div className='all-dates-wrapper'>
+            <h1 className='month-header'>
+              {currMonth}
+            </h1>
+            <CalHeader/>
+            <DayGrid 
+              days={dayCount}
+              handleClick={handleClick}
+              events={monthEvents[currMonth.toLowerCase()]}
+              selectedDay={selectedDay}
+            />
+          </div>
+          {eventDescWrapper}
+        </div>
+      </div>
     </div>
+  );
   );
 }
 
@@ -127,7 +196,21 @@ export function DayGrid(props) {
     );
   }
 
+  let dayList = [];
+
+  const date = new Date();
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  const firstDayIndex = firstDayOfMonth.getDay();
+
+  for (let i = 0; i < firstDayIndex; i++) {
+    dayList.push(
+      <div key={`empty-${i}`} className="day-card empty"></div>
+    );
+  }
+
   for (let day = 1; day <= dayCount; day++) {
+    const hasEvent = props.events && props.events[day];
+    const isSelected = props.selectedDay === day;
     const hasEvent = props.events && props.events[day];
     const isSelected = props.selectedDay === day;
     dayList.push(
@@ -137,16 +220,26 @@ export function DayGrid(props) {
         className={`day-card ${hasEvent ? 'has-event' : ''} ${isSelected ? 'selected' : ''}`}
         onClick={props.handleClick}
       >
+      <button
+        key={day}
+        id={day}
+        className={`day-card ${hasEvent ? 'has-event' : ''} ${isSelected ? 'selected' : ''}`}
+        onClick={props.handleClick}
+      >
         {day}
+        {hasEvent && <span className="event-indicator">•</span>}
         {hasEvent && <span className="event-indicator">•</span>}
       </button>
     );
+    );
   }
+
 
   return (
     <ul className='days-wrapper'>
       {dayList}
     </ul>
+  );
   );
 }
 
