@@ -34,7 +34,7 @@ function Home() {
   const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
   console.log(Array.from(Array(SLIDE_COUNT).keys()))
   return (
-    <div className="Home page">
+    <div className="home-page">
       <EmblaCarousel slides={as} options={OPTIONS}></EmblaCarousel>
       <NavLink to ="/gallery" className="redirect-container"> EXPLORE THE GALLERY ➔</NavLink>
 
