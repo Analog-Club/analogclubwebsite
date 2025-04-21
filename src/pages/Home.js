@@ -4,9 +4,9 @@ import React from 'react'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { GalleryCard } from "./Gallery";
+import {PageDivider} from '../components/PageDivider'
 import { GalleryCardHeader } from "./Gallery";
 import { NavLink } from "react-router-dom";
-
 function Home() {
   const data = require('../data/all_photos.json');
   var as = []
@@ -33,35 +33,35 @@ function Home() {
   console.log(Array.from(Array(SLIDE_COUNT).keys()))
   return (
     <div className="home-page">
-      <EmblaCarousel slides={as} options={OPTIONS}></EmblaCarousel>
-      <NavLink to ="/gallery" className="redirect-container"> EXPLORE THE GALLERY ➔</NavLink>
+      {/* <EmblaCarousel slides={as} options={OPTIONS}></EmblaCarousel> */}
+      {/* <NavLink to ="/gallery" className="redirect-container"> EXPLORE THE GALLERY ➔</NavLink> */}
 
-      {/* <PageDivider name="Thanks for checking us out! Our site is currently under development..."/> */}
+      <PageDivider name="Thanks for checking us out! Our site is currently under development..."/>
     </div>
   );
 }
 
 
 
-const EmblaCarousel = (props) => {
-  const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ playOnInit: true, delay: 3000 })])
+// const EmblaCarousel = (props) => {
+//   const { slides, options } = props
+//   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ playOnInit: true, delay: 3000 })])
 
-  return (
-    <section className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              <img className="home-img" src={index.photoUrl} alt="" />
+//   return (
+//     <section className="embla">
+//       <div className="embla__viewport" ref={emblaRef}>
+//         <div className="embla__container">
+//           {slides.map((index) => (
+//             <div className="embla__slide" key={index}>
+//               <img className="home-img" src={index.photoUrl} alt="" />
 
-              {/* <div className="embla__slide__number">{index + 1}</div> */}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+//               {/* <div className="embla__slide__number">{index + 1}</div> */}
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   )
+// }
 
 export default Home;

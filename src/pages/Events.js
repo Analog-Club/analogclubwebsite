@@ -1,3 +1,4 @@
+import { PageDivider } from "../components/PageDivider"
 import React, { useState, useEffect } from 'react';
 import useGoogleCalendar from '../components/GoogleCalendar';
 
@@ -39,39 +40,8 @@ export default function Events() {
     }
   }, [events]);
 
-  // Convert Google Calendar events to monthEvents format when events change
-  useEffect(() => {
-    if (events) {
-      const formattedEvents = events.reduce((acc, event) => {
-        const date = new Date(event.start.dateTime || event.start.date);
-        const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
-        const day = date.getDate();
-        
-        if (!acc[month]) {
-          acc[month] = {};
-        }
-        
-        acc[month][day] = {
-          name: event.summary,
-          day: day,
-          month: date.getMonth() + 1,
-          year: date.getFullYear(),
-          description: event.description || '',
-          time: date.toLocaleTimeString('en-US', { 
-            hour: 'numeric', 
-            minute: '2-digit',
-            hour12: true 
-          })
-        };
-        return acc;
-      }, {});
-      
-      setMonthEvents(formattedEvents);
-    }
-  }, [events]);
-
-  if (currEvent !== undefined) {
-    currEvent.style.border = "black 0.45vw solid";
+  if (currEvent != undefined) {
+    currEvent.style.border = "black 0.4vw solid";
     
     // Check if there's an event on the selected day
     const selectedDay = parseInt(currEvent.id);
@@ -90,24 +60,21 @@ export default function Events() {
   const handleClick = (event) => {
     var d = document.getElementById(event.target.id);
     const clickedDay = parseInt(event.target.id);
-    if (currEvent === undefined) {
+
+    if (currEvent == undefined) {
       setEvent(d);
-      setSelectedDay(clickedDay);
       setSelectedDay(clickedDay);
     } else {
       currEvent.style.border = "none";
-      if (d === currEvent) {
+      if (d == currEvent) {
         setEvent(undefined);
-        setSelectedDay(null);
         setSelectedDay(null);
       } else {
         setEvent(d);
         setSelectedDay(clickedDay);
-        setSelectedDay(clickedDay);
       }
     }
   }
-
 
   // Creation of current month's calendar
   let date = new Date();
@@ -172,11 +139,10 @@ export function DayGrid(props) {
         onClick={props.handleClick}
       >
         {day}
-        {hasEvent && <span className="event-indicator">•</span>}
+        {hasEvent && <span className="event-indicator">*</span>}
       </button>
     );
   }
-
 
   return (
     <ul className='days-wrapper'>
