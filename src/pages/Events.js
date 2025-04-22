@@ -1,4 +1,4 @@
-import { PageDivider } from "../components/PageDivider"
+// import { PageDivider } from "../components/PageDivider"
 import React, { useState, useEffect } from 'react';
 import useGoogleCalendar from '../components/GoogleCalendar';
 
@@ -40,7 +40,7 @@ export default function Events() {
     }
   }, [events]);
 
-  if (currEvent != undefined) {
+  if (currEvent !== undefined) {
     currEvent.style.border = "black 0.4vw solid";
     
     // Check if there's an event on the selected day
@@ -61,12 +61,12 @@ export default function Events() {
     var d = document.getElementById(event.target.id);
     const clickedDay = parseInt(event.target.id);
 
-    if (currEvent == undefined) {
+    if (currEvent === undefined) {
       setEvent(d);
       setSelectedDay(clickedDay);
     } else {
       currEvent.style.border = "none";
-      if (d == currEvent) {
+      if (d === currEvent) {
         setEvent(undefined);
         setSelectedDay(null);
       } else {
@@ -139,7 +139,7 @@ export function DayGrid(props) {
         onClick={props.handleClick}
       >
         {day}
-        {hasEvent && <span className="event-indicator">*</span>}
+        {hasEvent && <span className="event-indicator">•</span>}
       </button>
     );
   }

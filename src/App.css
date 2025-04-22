@@ -371,18 +371,18 @@ ul {
 .event-indicator {
   position: absolute;
   /* top: -30px; */
-  /* left: 50%; */
-  transform: translateY(20%);
+  right: -10%;
+  transform: translateY(-20%);
   color: #F34324;  /* Red dot indicator */
-  font-size: 2em;
+  font-size: 1em;
   opacity: 100%;
-  transition: opacity 0.2s;
+  /* transition: opacity 0.2s; */
   pointer-events: none;
 }
 
  /* Hide the dot when day is selected */
 .day-card.selected .event-indicator {
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .day-card.empty {

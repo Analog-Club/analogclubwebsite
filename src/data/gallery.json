@@ -50,5 +50,29 @@
                 "photoName": ""
             }
         }
+    },
+    "2": {
+        "photographerId": 3,
+        "photographerName": "Aaron",
+        "folderId": 0,
+        "folderName": "Birds",
+        "folderContent": {
+            "0": {
+                "photoUrl": "/images/000758300005.jpg",
+                "photoName": ""
+            },
+            "1": {
+                "photoUrl": "/images/000758300014.jpg",
+                "photoName": ""
+            },
+            "2": {
+                "photoUrl": "/images/000758300014.jpg",
+                "photoName": ""
+            },
+            "3": {
+                "photoUrl": "/images/000758300014.jpg",
+                "photoName": ""
+            }
+        }
     }
 }

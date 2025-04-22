@@ -1,12 +1,12 @@
 
 
 import React from 'react'
-import Autoplay from 'embla-carousel-autoplay'
-import useEmblaCarousel from 'embla-carousel-react'
+// import Autoplay from 'embla-carousel-autoplay'
+// import useEmblaCarousel from 'embla-carousel-react'
 import { GalleryCard } from "./Gallery";
 import {PageDivider} from '../components/PageDivider'
 import { GalleryCardHeader } from "./Gallery";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 function Home() {
   const data = require('../data/all_photos.json');
   var as = []
@@ -28,7 +28,7 @@ function Home() {
   })
   console.log(Array.from(Array(galleryCardSections).keys()))
 
-  const OPTIONS = { loop: true }
+  // const OPTIONS = { loop: true }
   const SLIDE_COUNT = 5
   console.log(Array.from(Array(SLIDE_COUNT).keys()))
   return (
