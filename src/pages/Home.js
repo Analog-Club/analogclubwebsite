@@ -4,7 +4,7 @@ import React from 'react'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { GalleryCard } from "./Gallery";
-import {PageDivider} from '../components/PageDivider'
+// import {PageDivider} from '../components/PageDivider'
 import { GalleryCardHeader } from "./Gallery";
 import { NavLink } from "react-router-dom";
 function Home() {
@@ -45,7 +45,7 @@ function Home() {
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ playOnInit: true, delay: 3000 })])
+  const [emblaRef, ] = useEmblaCarousel(options, [Autoplay({ playOnInit: true, delay: 3000 })])
 
   return (
     <section className="embla">
