@@ -10,34 +10,72 @@ export default function Events() {
   let eventDescWrapper = [];
 
   // Convert Google Calendar events to monthEvents format when events change
-  useEffect(() => {
-    if (events) {
-      const formattedEvents = events.reduce((acc, event) => {
-        const date = new Date(event.start.dateTime || event.start.date);
-        const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
-        const day = date.getDate();
+  // useEffect(() => {
+  //   if (events) {
+  //     const formattedEvents = events.reduce((acc, event) => {
+  //       const date = new Date(event.start.dateTime || event.start.date);
+  //       const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
+  //       const day = date.getDate();
         
-        if (!acc[month]) {
-          acc[month] = {};
-        }
+  //       if (!acc[month]) {
+  //         acc[month] = {};
+  //       }
         
-        acc[month][day] = {
-          name: event.summary,
-          day: day,
-          month: date.getMonth() + 1,
-          year: date.getFullYear(),
-          description: event.description || '',
-          time: date.toLocaleTimeString('en-US', { 
-            hour: 'numeric', 
-            minute: '2-digit',
-            hour12: true 
-          })
-        };
-        return acc;
-      }, {});
+  //       acc[month][day] = {
+  //         name: event.summary,
+  //         day: day,
+  //         month: date.getMonth() + 1,
+  //         year: date.getFullYear(),
+  //         description: event.description || '',
+  //         time: date.toLocaleTimeString('en-US', { 
+  //           hour: 'numeric', 
+  //           minute: '2-digit',
+  //           hour12: true 
+  //         })
+  //       };
+  //       return acc;
+  //     }, {});
       
-      setMonthEvents(formattedEvents);
-    }
+  //     setMonthEvents(formattedEvents);
+  //   }
+  // }, [events]);
+
+  useEffect(() => {
+    const processEvents = async () => {
+      if (events) {
+        try {
+          const formattedEvents = events.reduce((acc, event) => {
+            const date = new Date(event.start.dateTime || event.start.date);
+            const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
+            const day = date.getDate();
+            
+            if (!acc[month]) {
+              acc[month] = {};
+            }
+            
+            acc[month][day] = {
+              name: event.summary,
+              day: day,
+              month: date.getMonth() + 1,
+              year: date.getFullYear(),
+              description: event.description || '',
+              time: date.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+              })
+            };
+            return acc;
+          }, {});
+          
+          setMonthEvents(formattedEvents);
+        } catch (error) {
+          console.error("Error processing events:", error);
+        }
+      }
+    };
+    
+    processEvents();
   }, [events]);
 
   if (currEvent !== null) {
