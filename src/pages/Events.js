@@ -40,8 +40,8 @@ export default function Events() {
     }
   }, [events]);
 
-  if (currEvent !== undefined) {
-    currEvent.style.border = "black 0.4vw solid";
+  if (currEvent !== null) {
+    currEvent.style.outline = "black 0.4vw solid";
     
     // Check if there's an event on the selected day
     const selectedDay = parseInt(currEvent.id);
@@ -61,13 +61,13 @@ export default function Events() {
     var d = document.getElementById(event.target.id);
     const clickedDay = parseInt(event.target.id);
 
-    if (currEvent === undefined) {
+    if (currEvent === null) {
       setEvent(d);
       setSelectedDay(clickedDay);
     } else {
-      currEvent.style.border = "none";
+      currEvent.style.outline = "none";
       if (d === currEvent) {
-        setEvent(undefined);
+        setEvent(null);
         setSelectedDay(null);
       } else {
         setEvent(d);
