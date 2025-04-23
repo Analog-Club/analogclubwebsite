@@ -1,3 +1,6 @@
+.home-page {
+  overflow: hidden;
+}
 /* Navbar */
 .title-text {
   font-family: Futura, Helvetica, sans-serif;
@@ -79,15 +82,30 @@
   letter-spacing: -1.2px;
 }
 
+.redirect-container {
+  color: black;
+  height: 2rem;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.redirect-container:hover {
+  background-color: #000;
+  color: white;
+}
+
 /* footer */
 
 .footer {
   color: black;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
   border-top: solid black 1px;
   justify-content: center;
+  margin-top: 10vh;
 }
 
 .social-icons {
@@ -112,7 +130,7 @@
   display: block;
   background-color: white;
   align-items: center;
-  width: 25%;
+  width: 20%;
   padding: 0.5rem;
 }
 
@@ -143,6 +161,10 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3rem;
+  /* justify-content: space-around; */
+  margin-left: 1rem;
+  margin-right: 1rem;
+
 }
 
 /* events */
@@ -237,10 +259,11 @@ p {
   align-items: center;
   justify-content: center;
   list-style: none;
-  font-size: 2.5rem;
+  /* font-size: 2.5em; */
+  font-size: 4vw;
   font-weight: bold;
-  padding: 5px;
-  height: 50px;
+  margin: 5px;
+  /* height: 50px; */
   border-radius: 50%;
   background: none;
   color: inherit;
@@ -257,8 +280,8 @@ p {
 
 .days-wrapper {
   display: grid;
-  grid-template-columns: repeat(7, 0.5fr);
-  grid-template-rows: repeat(5, 0.5fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, auto);
   list-style-type: none;
   margin: none;
   padding: 0;
@@ -279,7 +302,9 @@ p {
 }
 
 .month-header {
-  font-size: 8vh;
+  /* font-size: 8vh; */
+  font-size: 8vw;
+
   align-items: center;
   margin: 5px;
   letter-spacing: -1.2px;
@@ -325,12 +350,11 @@ ul {
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  height: 20%;
+  /* height: 20%; */
   align-items: center;
-
   p {
     font-size: 1rem;
-
+    margin: 0;
   }
 }
 
@@ -341,6 +365,37 @@ ul {
 
 .page {
   min-height: 100vh;
+}
+
+/* shows event on card */
+.day-card.has-event {
+  position: relative;
+}
+
+.event-indicator {
+  position: absolute;
+  /* top: -30px; */
+  right: -10%;
+  transform: translateY(-30%);
+  color: #F34324;  /* Red dot indicator */
+  font-size: 1em;
+  opacity: 100%;
+  /* transition: opacity 0.2s; */
+  pointer-events: none;
+}
+
+ /* Hide the dot when day is selected */
+/* .day-card.selected .event-indicator { */
+  /* opacity: 0; */
+/* } */
+
+.day-card.empty {
+  background: none;
+  cursor: default;
+}
+
+.day-card.empty:hover {
+  text-decoration: none;
 }
 
 /* Mobile styles (default) */
@@ -382,6 +437,8 @@ ul {
   .full-calendar {
     max-width: 768px;
     flex-wrap: wrap;
+    height: 90vh;
+
   }
 
   .calendar-image {
@@ -415,7 +472,28 @@ ul {
 } */
 
 
-
+@media (max-width: 768px) {
+  .day-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    /* font-size: 2.5em; */
+    font-size: 4vw;
+    font-weight: bold;
+    margin: 5px;
+    /* height: 50px; */
+    border-radius: 50%;
+    background: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    /* height: 5vw; */
+    /* width: 5vw; */
+    border-color: blue;
+  }
+}
 /* Tablet styles */
 @media (min-width: 768px) and (max-width:1024px)  {
   .gallery-card {
@@ -453,4 +531,48 @@ ul {
       padding: 40px;
   } */
 /* } */
+
+/* embla */
+
+.embla__viewport{
+  overflow: visible !important;
+}
+/* home page */
+
+.home-img {
+  display: flex;
+  /* justify-content: center; */
+  /* width: 100%; */
+  /* height: 50%; */
+  max-height:500px;
+
+}
+
+.embla {
+  padding-top: 5rem;
+  max-width: 48rem;
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+  /* width: 100%; */
+  /* height: 20%; */
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+  max-height:500px;
+
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  /* max-height: 20%; */
+}
 
