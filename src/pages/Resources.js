@@ -19,7 +19,7 @@ export function Resources() {
     )
   })
   return (
-    <div className="Resources">
+    <div className="Resources page">
       {resourcesCardList}
     </div>
   );

@@ -1,11 +1,11 @@
-import {PageDivider} from '../components/PageDivider'
+// import {PageDivider} from '../components/PageDivider'
 
 export function Gallery() {
   const data = require('../data/gallery.json');
   console.log(data)
 
   /* Isn't currently being used */
-  /*const galleryCardSections = Object.keys(data).map((index) => {
+  const galleryCardSections = Object.keys(data).map((index) => {
     return (
       <div key={data[index].photographerId}>
         <div className="gallery-card-wrapper">
@@ -14,15 +14,15 @@ export function Gallery() {
         </div>
       </div>
     )
-  }) */
+  })
 
   return (
-    <div className="section">
-      <PageDivider name="Coming soon"/>
-      {/* <PageDivider name="Gallery"/>
+    <div className="section page">
+      {/* <PageDivider name="Coming soon"/> */}
+      {/* <PageDivider name="Gallery"/> */}
       <div className="gallery-section">
         {galleryCardSections}
-      </div> */}
+      </div>
     </div>
   );
   
@@ -31,13 +31,16 @@ export function Gallery() {
 export function GalleryCard(props) {
   const galleryCardPhotos = Object.keys(props.data).map((index) => {
     console.log(props.data[index], props.data)
-    const photoName = props.data[index].photoName
+    var photoName = props.data[index].photoName
+    if (photoName.length > 0) {
+      photoName = ("\"" + photoName + "\"").toUpperCase()
+    }
     const photoUrl = props.data[index].photoUrl
     return (
       <div className="gallery-card">
           <img src={photoUrl} alt ={photoName} className="gallery-img"/>
           <div className="gallery-label">
-            <div>"{photoName.toUpperCase()}"</div>
+            <div>{photoName}</div>
           </div>
       </div>
     )

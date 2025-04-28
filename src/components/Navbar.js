@@ -7,7 +7,6 @@ function Navbar() {
     <div className="Navbar">
       <div className="title-container">
         <NavLink to ="/home" style={{ textDecoration: 'none' }} ><h1 className="title-text">ANALOG CLUB</h1></NavLink>
-        <NavLink to ="/magazine" ><p className="share-text">Share your photos</p></NavLink>
       </div>
       <div className="navbar-links">
         <NavLink to ="/gallery" className="nav-links nav-container" >GALLERY</NavLink>
