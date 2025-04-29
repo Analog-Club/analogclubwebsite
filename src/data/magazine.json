@@ -1,28 +1,7 @@
 {
-    "magazine": [
-        {
-            "title": "",
-            "desc": "",
-            "photoUrl": "",
-            "deadline": ""
-        }
-    ],
-
-    "opencall": [
-        {
-            "title": "Metamorphosis",
-            "desc": "This theme is all about transformation, growth, and any unique perspective.",
-            "photoUrl": "images/Metamorphosis.png",
-            "deadline": "Deadline: 1/17/2025"
-        }
-    ],
-
-    "history": [
-        {
-            "title": "",
-            "desc": "",
-            "photoUrl": "",
-            "deadline": ""
-        }
-    ]
+    "0": {
+        "title": "Magazine1",
+        "desc": "Metamorphosis",
+        "photoUrl": "/images/digitalmagazine1.png"
+    }
 }
