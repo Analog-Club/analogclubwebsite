@@ -558,17 +558,17 @@ ul {
 
 .magazine-home a {
   position: absolute;
-  width: 25vh;
-  height: 9vh;
+  width: 15vw;
+  height: 5vw;
   margin-top: 25px;
   margin-left: 20px;
-  color: #000;
+  color: #fff;
   font-family: Helvetica;
-  font-size: 4vh;
+  font-size: 2vw;
   font-style: normal;
   font-weight: 700;
   letter-spacing: 1.2px;
-  line-height: 9vh; /* 242.5% */
+  line-height: 4.5vw; /* 242.5% */
   background-color: #B32906CC;
   opacity: 80%;
   text-align: center;
