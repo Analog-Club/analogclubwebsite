@@ -8,12 +8,12 @@ import { NavLink } from "react-router-dom";
 function Home() {
   const photoData = require('../data/all_photos.json');
   const magazineData = require('../data/magazine.json');
-  const opencallData = require('../data/opencall.json');
-  const photowalksData = require('../data/photowalks.json');
+  // const opencallData = require('../data/opencall.json');
+  // const photowalksData = require('../data/photowalks.json');
 
-  const photowalk = photowalksData[0];
+  // const photowalk = photowalksData[0];
   const magazine = magazineData[0];
-  const opencall = opencallData[0];
+  // const opencall = opencallData[0];
 
   var as = []
   for (var i in photoData) 
