@@ -266,6 +266,40 @@ p {
   margin-bottom: 10px;
 }
 
+.staff-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 1.5rem; /* Spacing between items */
+  flex: 1;
+  padding-top: 50px;
+}
+
+.staff-member {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  align-items: center;
+  text-align: center;
+}
+
+.staff-member img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.staff-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.staff-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
 /* calendar css */
 
 .day-card {

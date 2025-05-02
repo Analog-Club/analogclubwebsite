@@ -1,5 +1,6 @@
 export function About() {
   const data = require('../data/about.json');
+  const staff = require('../data/staff.json');
 
   const aboutCardList = Object.keys(data).map((index) => {
     return (
@@ -16,14 +17,21 @@ export function About() {
     );
   });
 
+  const staffCards = staff.map((member, i) => (
+    <div key={i} className="staff-member">
+      <img src={member.photoUrl} alt={member.name} />
+      <div className="staff-info">
+        <h3>{member.name}</h3>
+        <p>{member.role}</p>
+      </div>
+    </div>
+  ));
+
   return (
     <div className="about-page"> 
-      {/* Left Side: Image */}
-      <div className="about-image">
-        <img 
-          src="images/spaceneedle.png" 
-          alt="Space Needle" 
-        />
+      {/* Left Side: Staff Photos */}
+      <div className="about-image staff-container">
+        {staffCards}
       </div>
 
       {/* Right Side: Description */}

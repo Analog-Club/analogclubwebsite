@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Caleb Lykken",
+      "role": "President",
+      "photoUrl": "images/caleb.png" 
+    },
+    {
+      "name": "Ethan LaPlante",
+      "role": "Marketing",
+      "photoUrl": "images/ethan.png"
+    },
+    {
+      "name": "Morgan Dulitz",
+      "role": "Magazine",
+      "photoUrl": "images/morgan.png"
+    },
+    {
+      "name": "Arona Cho",
+      "role": "Website Development",
+      "photoUrl": "images/arona.png"
+    }
+  ]
