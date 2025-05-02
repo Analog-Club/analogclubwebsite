@@ -39,12 +39,12 @@ function Home() {
 
   return (
     <div className="home-page">
-      <div className="page-divider">THIS WEEK'S HIGHLIGHTS</div>
+      {/* <div className="page-divider">THIS WEEK'S HIGHLIGHTS</div> */}
 
       { /* Magazine section */ }
       <div className="magazine-home">
         <div className="fix-position">
-          <a href="https://analog-club-uw.square.site/" style={{ textDecoration: 'none' }}>Order Now</a>
+          <a href="https://analog-club-uw.square.site/" className='redirect-container' style={{ textDecoration: 'none' }}>ORDER NOW</a>
         </div>
         <img src={magazine.photoUrl} alt={magazine.title}></img>
       </div>
@@ -55,8 +55,9 @@ function Home() {
       <EmblaCarousel slides={as} options={OPTIONS}></EmblaCarousel>
       <NavLink to ="/gallery" className="redirect-container"> EXPLORE THE GALLERY ➔</NavLink>
       
-      { /* Photowalk section */ }
-      <div className="photowalk-home">
+      { /* Photowalk section */ } 
+      {/* Commenting out for now! */}
+      {/* <div className="photowalk-home">
         <img src={photowalk.photoUrl} alt={photowalk.photoName}></img>
         <div>
           <p className="title">PHOTO WALK:</p>
@@ -64,7 +65,7 @@ function Home() {
           <p>PHOTOGRAPHER: {photowalk.photographer}</p>
           <p>FILM STOCK: {photowalk.filmStock}</p>
         </div>
-      </div>
+      </div> */}
       
     </div>
   );
