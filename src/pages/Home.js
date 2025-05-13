@@ -43,9 +43,9 @@ function Home() {
 
       { /* Magazine section */ }
       <div className="magazine-home">
-        <div className="fix-position">
+        {/* <div className="fix-position">
           <a href="https://analog-club-uw.square.site/" className='redirect-container' style={{ textDecoration: 'none' }}>ORDER NOW</a>
-        </div>
+        </div> */}
         <img src={magazine.photoUrl} alt={magazine.title}></img>
       </div>
 
