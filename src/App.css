@@ -173,10 +173,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 3rem;
-  /* justify-content: space-around; */
-  margin-left: 1rem;
-  margin-right: 1rem;
-
 }
 
 /* events */
