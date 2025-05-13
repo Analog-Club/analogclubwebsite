@@ -109,7 +109,7 @@ function ImageModal({ isOpen, imageUrl, alt, photographerName, onClose }) {
           <button className="image-modal-close" onClick={onClose}>×</button>
         </div>
         <div className="image-modal-sidebar">
-          <p>{photographerName}</p>
+          <p>{photographerName.toUpperCase()}</p>
         </div>
       </div>
     </div>
