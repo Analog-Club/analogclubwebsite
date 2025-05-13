@@ -14,20 +14,23 @@ export function useGoogleCalendar() {
         apiKey: API_KEY,
         discoveryDocs: [DISCOVERY_DOC],
       }).then(() => {
-        listUpcomingEvents();
+        listMonthEvents();
       }).catch(err => {
         setError('Error initializing GAPI client: ' + err.message);
       });
     }
 
-    async function listUpcomingEvents() {
+    async function listMonthEvents() {
       try {
+        const now = new Date();
+        const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+        const lastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
         const response = await window.gapi.client.calendar.events.list({
           'calendarId': CALENDAR_ID,
-          'timeMin': (new Date()).toISOString(),
+          'timeMin': firstDayOfMonth.toISOString(),
+          'timeMax': lastDayOfMonth.toISOString(),
           'showDeleted': false,
           'singleEvents': true,
-          'maxResults': 10,
           'orderBy': 'startTime',
         });
 
