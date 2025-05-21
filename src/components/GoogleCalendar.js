@@ -23,12 +23,13 @@ export function useGoogleCalendar() {
     async function listMonthEvents() {
       try {
         const now = new Date();
-        const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-        const lastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        const firstDayOfCurrentMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+        const lastDayOfNextMonth = new Date(now.getFullYear(), now.getMonth() + 2, 0);
+        
         const response = await window.gapi.client.calendar.events.list({
           'calendarId': CALENDAR_ID,
-          'timeMin': firstDayOfMonth.toISOString(),
-          'timeMax': lastDayOfMonth.toISOString(),
+          'timeMin': firstDayOfCurrentMonth.toISOString(),
+          'timeMax': lastDayOfNextMonth.toISOString(),
           'showDeleted': false,
           'singleEvents': true,
           'orderBy': 'startTime',

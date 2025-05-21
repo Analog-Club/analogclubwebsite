@@ -7,53 +7,31 @@ export default function Events() {
   const { events, error } = useGoogleCalendar();
   const [monthEvents, setMonthEvents] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
+  const [displayedMonth, setDisplayedMonth] = useState(new Date()); // New state for current displayed month
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationDirection, setAnimationDirection] = useState('');
   let eventDescWrapper = [];
 
   // Convert Google Calendar events to monthEvents format when events change
-  // useEffect(() => {
-  //   if (events) {
-  //     const formattedEvents = events.reduce((acc, event) => {
-  //       const date = new Date(event.start.dateTime || event.start.date);
-  //       const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
-  //       const day = date.getDate();
-        
-  //       if (!acc[month]) {
-  //         acc[month] = {};
-  //       }
-        
-  //       acc[month][day] = {
-  //         name: event.summary,
-  //         day: day,
-  //         month: date.getMonth() + 1,
-  //         year: date.getFullYear(),
-  //         description: event.description || '',
-  //         time: date.toLocaleTimeString('en-US', { 
-  //           hour: 'numeric', 
-  //           minute: '2-digit',
-  //           hour12: true 
-  //         })
-  //       };
-  //       return acc;
-  //     }, {});
-      
-  //     setMonthEvents(formattedEvents);
-  //   }
-  // }, [events]);
-
   useEffect(() => {
     const processEvents = async () => {
       if (events) {
         try {
           const formattedEvents = events.reduce((acc, event) => {
             const date = new Date(event.start.dateTime || event.start.date);
-            const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
+            // Use year-month as key for easier month switching
+            const monthKey = `${date.getFullYear()}-${date.getMonth()}`;
             const day = date.getDate();
             
-            if (!acc[month]) {
-              acc[month] = {};
+            if (!acc[monthKey]) {
+              acc[monthKey] = {};
             }
             
-            acc[month][day] = {
+            if (!acc[monthKey][day]) {
+              acc[monthKey][day] = [];
+            }
+            
+            acc[monthKey][day].push({
               name: event.summary,
               day: day,
               month: date.getMonth() + 1,
@@ -64,7 +42,8 @@ export default function Events() {
                 minute: '2-digit',
                 hour12: true 
               })
-            };
+            });
+            
             return acc;
           }, {});
           
@@ -78,27 +57,67 @@ export default function Events() {
     processEvents();
   }, [events]);
 
+  // Define current and next month dates for navigation
+  const currentMonthDate = new Date();
+  const nextMonthDate = new Date(currentMonthDate.getFullYear(), currentMonthDate.getMonth() + 1, 1);
+
+  // Go back to current month
+  const handlePrevMonth = () => {
+    if (displayedMonth.getMonth() === nextMonthDate.getMonth()) {
+      setIsAnimating(true);
+      setAnimationDirection('slide-right');
+      setTimeout(() => {
+        setDisplayedMonth(currentMonthDate);
+        setSelectedDay(null);
+        setEvent(null);
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
+
+  // Go to next month
+  const handleNextMonth = () => {
+    if (displayedMonth.getMonth() === currentMonthDate.getMonth()) {
+      setIsAnimating(true);
+      setAnimationDirection('slide-left');
+      setTimeout(() => {
+        setDisplayedMonth(nextMonthDate);
+        setSelectedDay(null);
+        setEvent(null);
+        setIsAnimating(false);
+      }, 300);
+    }
+  };
+
   if (currEvent !== null) {
     currEvent.style.outline = "black 0.4vw solid";
     
     // Check if there's an event on the selected day
     const selectedDay = parseInt(currEvent.id);
-    const selectedMonth = new Date().toLocaleString('default', { month: 'long' }).toLowerCase();
+    const displayedMonthKey = `${displayedMonth.getFullYear()}-${displayedMonth.getMonth()}`;
     
-    if (monthEvents[selectedMonth] && monthEvents[selectedMonth][selectedDay]) {
-      const event = monthEvents[selectedMonth][selectedDay];
-      eventDescWrapper = EventDesc({
-        desc: event.name,
-        time: event.time,
-        date: `${selectedMonth} ${selectedDay}`
-      });
+    if (monthEvents[displayedMonthKey] && monthEvents[displayedMonthKey][selectedDay]) {
+      const dayEvents = monthEvents[displayedMonthKey][selectedDay];
+      // If multiple events, display them all
+      eventDescWrapper = (
+        <div className='event-description-wrapper'>
+          {dayEvents.map((event, index) => (
+            <EventDesc
+              key={index}
+              desc={event.name}
+              time={event.time}
+              date={`${displayedMonth.toLocaleString('default', { month: 'long' })} ${selectedDay}`}
+            />
+          ))}
+        </div>
+      );
     }
   }
 
   const handleClick = (event) => {
     var d = document.getElementById(event.target.id);
     const clickedDay = parseInt(event.target.id);
-
+ 
     if (currEvent === null) {
       setEvent(d);
       setSelectedDay(clickedDay);
@@ -114,12 +133,15 @@ export default function Events() {
     }
   }
 
-  // Creation of current month's calendar
-  let date = new Date();
-  let currMonth = date.toLocaleString('default', { month: 'long' }).toUpperCase();
+  // Use displayedMonth instead of current date
+  let currMonth = displayedMonth.toLocaleString('default', { month: 'long' }).toUpperCase();
+  let currYear = displayedMonth.getFullYear();
   
-  // Get number of days in current month
-  let dayCount = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  // Get number of days in displayed month
+  let dayCount = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() + 1, 0).getDate();
+  
+  // Generate key for displayed month
+  const displayedMonthKey = `${displayedMonth.getFullYear()}-${displayedMonth.getMonth()}`;
 
   // Show error if API fails
   if (error) {
@@ -133,16 +155,33 @@ export default function Events() {
       </div>
       <div className='calendar-right-panel'>
         <div className='calendar-wrapper'>
-          <div className='all-dates-wrapper'>
-            <h1 className='month-header'>
-              {currMonth}
-            </h1>
+          <div className={`all-dates-wrapper ${isAnimating ? animationDirection : ''}`}>
+            <div className='month-header-container'>
+              <button 
+                onClick={handlePrevMonth} 
+                className='month-arrow prev-arrow'
+                disabled={displayedMonth.getMonth() === currentMonthDate.getMonth()}
+              >
+                &lt;
+              </button>
+              <h1 className='month-header'>
+                {currMonth}
+              </h1>
+              <button 
+                onClick={handleNextMonth} 
+                className='month-arrow next-arrow'
+                disabled={displayedMonth.getMonth() === nextMonthDate.getMonth()}
+              >
+                &gt;
+              </button>
+            </div>
             <CalHeader/>
             <DayGrid 
               days={dayCount}
               handleClick={handleClick}
-              events={monthEvents[currMonth.toLowerCase()]}
+              events={monthEvents[displayedMonthKey] || {}}
               selectedDay={selectedDay}
+              dateContext={displayedMonth}
             />
           </div>
           {eventDescWrapper}
@@ -156,8 +195,8 @@ export function DayGrid(props) {
   let dayCount = props.days;
   let dayList = [];
 
-  const date = new Date();
-  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  // Use dateContext for calculating first day of month
+  const firstDayOfMonth = new Date(props.dateContext.getFullYear(), props.dateContext.getMonth(), 1);
   const firstDayIndex = firstDayOfMonth.getDay();
 
   for (let i = 0; i < firstDayIndex; i++) {
@@ -167,7 +206,7 @@ export function DayGrid(props) {
   }
 
   for (let day = 1; day <= dayCount; day++) {
-    const hasEvent = props.events && props.events[day];
+    const hasEvent = props.events && props.events[day] && props.events[day].length > 0;
     const isSelected = props.selectedDay === day;
     dayList.push(
       <button
@@ -191,7 +230,6 @@ export function DayGrid(props) {
 
 // Creates the header for the calendar (sun-sat)
 export function CalHeader() {
-
   const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   const weekdays_alt = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
@@ -212,7 +250,6 @@ export function CalHeader() {
 }
 
 // Creates an event description div if the day clicked has an event
-// If no events are happening, then show 'NO EVENTS' or blank
 export function EventDesc(props) {
   const desc_string = props.desc;
   const desc_time = props.date + " at " + props.time;
