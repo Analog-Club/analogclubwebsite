@@ -445,6 +445,7 @@ ul {
 
 /* Mobile styles (default) */
 @media (max-width:768px)  {
+  
   .gallery-card {
     width: 100%;
     /* margin:20px; */
@@ -493,6 +494,53 @@ ul {
 
   .calendar-right-panel {
     width: 100%;
+  }
+
+  .resource-card-wrapper > img {
+    display: none;
+  }
+
+  .resource-card-wrapper {
+    height: 25%;
+    display: grid;
+    grid-template-columns: 100% 0%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin-top: 3rem;
+  }
+
+  .staff-container {
+    display: none;
+    gap: 1.5rem; /* Spacing between items */
+    flex: 1;
+    padding-top: 50px;
+  }
+
+  .staff-member {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .staff-member img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+
+  .staff-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .staff-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
   }
 
 
@@ -732,7 +780,7 @@ ul {
   justify-content: center;
   z-index: 1;
 }
-=======
+
 .photowalk-home {
   display: flex;
   width: 100%;
