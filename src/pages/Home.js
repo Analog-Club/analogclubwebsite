@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 function Home() {
   const photoData = require('../data/all_photos.json');
-  const magazineData = require('../data/magazine.json');
+  const magazineData = require('../data/magazine_2.json');
   // const opencallData = require('../data/opencall.json');
   // const photowalksData = require('../data/photowalks.json');
 
@@ -42,11 +42,16 @@ function Home() {
       {/* <div className="page-divider">THIS WEEK'S HIGHLIGHTS</div> */}
 
       { /* Magazine section */ }
-      <div className="magazine-home">
-        {/* <div className="fix-position">
-          <a href="https://analog-club-uw.square.site/" className='redirect-container' style={{ textDecoration: 'none' }}>ORDER NOW</a>
-        </div> */}
-        <img src={magazine.photoUrl} alt={magazine.title}></img>
+      <div className="magazine-homee">
+        <div className="left-magazine-homee">
+          <img src={magazine.photoUrl} alt={magazine.title}></img>
+        </div>
+        <div className="right-magazine-homee">
+          <h1 className="mag-title">{magazine.desc}</h1>
+          <p>{magazine.desc2}</p>
+          <a href="https://analog-club-uw.square.site/" style={{ textDecoration: 'none' }}>ORDER NOW</a>
+
+        </div>
       </div>
 
       { /* Opencall section */ }
@@ -162,7 +167,6 @@ export function UrlQuote(props) {
       </div>
   );
 }*/
-
 
 
 
