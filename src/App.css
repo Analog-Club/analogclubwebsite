@@ -630,7 +630,9 @@ ul {
 .embla__viewport{
   overflow: visible !important;
 }
+
 /* home page */
+
 .magazine-home .fix-position {
   position: flex;
 }
@@ -654,7 +656,8 @@ ul {
 }
 
 .magazine-home img {
-  width: 100vw;
+  width: 46.7vw;
+  
 }
 
 .home-img {
@@ -780,6 +783,93 @@ ul {
   justify-content: center;
   z-index: 1;
 }
+
+/* magazine doohicky */
+.magazine-homee{
+  display: flex;
+  width: 100%;
+  line-height: 1;
+}
+
+.left-magazine-homee{
+  flex: 1 0 48.5%;
+}
+
+.left-magazine-homee img{
+  /* width: 46.7vw; */
+  width: 100%;
+  height: auto;
+  display: block;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+
+.left-magazine-homee p{
+  height: auto;
+  display: block;
+  text-align: right;
+  align-content: right;
+  font-size: .75rem;
+  text-decoration: underline;
+  margin-top: -.001rem;
+}
+
+.left-magazine-homee p:hover{
+  color: #B32906CC;
+  transition-duration: .5s;
+}
+
+.right-magazine-homee {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.mag-title, h2{
+  font-size: 8vw; 
+  margin-top: 1rem;
+  margin-bottom: .75rem;
+  padding-right: .75rem;
+}
+
+.right-magazine-homee h2{
+  font-size: 1rem;
+  letter-spacing: -.1rem;
+  font-weight: 500;
+  margin-top: -1.5vh;
+  margin-bottom: 3vh;
+  
+  }
+
+a.mag-button{
+  /* display: inline-block; */
+  width: auto;
+  height: auto;
+  color: #000000;
+  font-family: Helvetica;
+  font-style: normal;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: .25rem;
+  line-height: 2rem; /* 4.5 vw 242.5% */
+  background-color: white;
+  opacity: 80%;
+  border: 1px solid black;
+  padding: 1rem 1rem;
+  margin: 1 auto;
+  align-items: right;
+  text-align: center;
+}
+
+a.mag-button:hover{
+  background-color: #B32906CC;
+  color: white;
+  transition-duration: 0.5s;
+}
+/* end of magazine doohicky */
 
 .photowalk-home {
   display: flex;

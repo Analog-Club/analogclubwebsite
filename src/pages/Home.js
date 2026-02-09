@@ -45,12 +45,12 @@ function Home() {
       <div className="magazine-homee">
         <div className="left-magazine-homee">
           <img src={magazine.photoUrl} alt={magazine.title}></img>
+          <p>EXPLORE MORE OF ISSUE II</p>
         </div>
         <div className="right-magazine-homee">
           <h1 className="mag-title">{magazine.desc}</h1>
-          <p>{magazine.desc2}</p>
-          <a href="https://analog-club-uw.square.site/" style={{ textDecoration: 'none' }}>ORDER NOW</a>
-
+          <h2>{magazine.desc2}</h2>
+          <a href="https://analog-club-uw.square.site/" className="mag-button"style={{ textDecoration: 'none' }}>ORDER NOW</a>
         </div>
       </div>
 
@@ -98,6 +98,7 @@ const EmblaCarousel = (props) => {
     </section>
   )
 }
+
 
 
 /*
