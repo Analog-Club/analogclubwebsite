@@ -46,15 +46,19 @@ function Home() {
         <div className="left-magazine-homee">
           <h2 className="issue">{magazine.desc2}</h2>
           <h1 className="mag-title">{magazine.desc}</h1>
-          <h2 className="price-mag">$25</h2>
+          <div className="price">
+            <h2 className="price-mag">$25</h2>
+            <p>$30 AFTER PRE-ORDERS</p>
+          </div>
         </div>
         <div className="right-magazine-homee">
           <img src={magazine.photoUrl} alt={magazine.title}></img>
-          <NavLink to ="/magazine" className="explore-mag">EXPLORE ISSUE II</NavLink>
           <a href="https://analog-club-uw.square.site/" className="mag-button"style={{ textDecoration: 'none' }}>ORDER NOW</a>
-          <p>AVALIABLE UNTIL 02/28/26</p>
+          {/* <p className="date-end">ENDS 02/28/26</p> */}
         </div>
       </div>
+      <NavLink to ="/magazine" className="redirect-container">EXPLORE ISSUE II ➔</NavLink>
+
 
       { /* Opencall section */ }
 

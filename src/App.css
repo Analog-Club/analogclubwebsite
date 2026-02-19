@@ -799,11 +799,13 @@ ul {
 /*mobile design (default)*/
 .magazine-homee{
   flex-direction: column;
+  font-family: Helvetica;
 }
 
 .left-magazine-homee {
   flex-direction: column;
   text-align: center;
+  padding: 3rem;
 }
 
 .mag-title, h2, .issue{
@@ -812,13 +814,11 @@ ul {
   margin-bottom: .5rem;
   line-height: 2rem;
   padding-right: .75rem;
+  letter-spacing: -.1rem;
 }
 
 .left-magazine-homee .issue{
-  font-family: Helvetica;
-  text-align: left;
   line-height: .8;
-  letter-spacing: -.15rem;
   font-size: 1rem;
   font-weight: 300;
   margin-left: .5rem;
@@ -826,24 +826,36 @@ ul {
 }
 
 .left-magazine-homee .mag-title{
-  font-family: Helvetica;
-  text-align: left;
   line-height: .8;
-  letter-spacing: -.15rem;
   font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: -.6rem;
 }
 
-
+.left-magazine-homee .price{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: -5rem;
+}
 .left-magazine-homee .price-mag{
     font-family: 'Courier New';
-    text-align: left;
     font-weight: 500;
     font-size: 2rem;
     color: black;
+    text-align: left;
+}
+
+.left-magazine-homee .price p{
+  font-family:'Courier New';
+  font-size: 1rem;
+  display: none;
+  color: grey;
 }
 
 .right-magazine-homee{
   padding: 3rem;
+  margin-bottom: -4rem;
 }
 
 .right-magazine-homee img, .explore-mag{
@@ -858,25 +870,6 @@ ul {
   text-decoration: underline;
   margin-top: -.001rem;
   letter-spacing: -.05vw;
-}
-
-a.mag-button{
-  display: flex;
-  font-family: Helvetica;
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -.15rem;
-  line-height: 2rem; /*4.5 vw 242.5% */
-  padding: 2rem 3rem;
-  margin: 2rem;
-  justify-content: center;
-  text-align: center;
-  margin-top: 2rem;
-  color: #000000;
-  background-color: white;
-  border: 1px solid black;
-  opacity: 80%;
-
 }
 
 /*avaliable until*/
@@ -900,6 +893,7 @@ a.mag-button{
   flex-direction: column;
   text-align: left;
   margin-top: 10rem;
+  padding: 5rem;
 }
 
 .mag-title, h2, .issue{
@@ -907,11 +901,9 @@ a.mag-button{
   margin-top: 1rem;
   margin-bottom: .75rem;
   line-height: 3rem;
-  padding-right: .75rem;
 }
 
 .left-magazine-homee .issue{
-  font-family: Helvetica;
   text-align: left;
   line-height: .8;
   letter-spacing: -.15rem;
@@ -922,10 +914,9 @@ a.mag-button{
 }
 
 .left-magazine-homee .mag-title{
-  font-family: Helvetica;
   text-align: left;
   line-height: .8;
-  letter-spacing: -.15rem;
+  letter-spacing: -1rem;
   font-size: 8rem;
 }
 
@@ -935,6 +926,7 @@ a.mag-button{
     text-align: left;
     font-weight: 500;
     font-size: 2rem;
+    margin-top: -.5rem;
     color: black;
 }
 
@@ -968,13 +960,13 @@ a.mag-button{
   transition-duration: .5s;
 }
 
-.right-magazine-homee p{
+ .date-end{
   font-size: .75rem;
   text-align: center;
-  margin-top: -2rem;
+}
 }
 
-a.mag-button{
+.mag-button{
   display: flex;
   font-family: Helvetica;
   font-size: 2rem;
@@ -982,7 +974,6 @@ a.mag-button{
   letter-spacing: -.15rem;
   line-height: 2rem; /*4.5 vw 242.5% */
   padding: 2rem 3rem;
-  margin: 2rem;
   justify-content: center;
   text-align: center;
   margin-top: 2rem;
@@ -992,7 +983,6 @@ a.mag-button{
   opacity: 80%;
 }
 
-}
 a.mag-button:hover{
   background-color: #B32906CC;
   color: white;
@@ -1002,41 +992,99 @@ a.mag-button:hover{
 
 /* facess and places doohicky */
 
+/*basis of styling second mag page*/
 .second-magazine-homepage {
-  display: flex;
-  width: 100%;
-  height: fit-content;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+  }
+
+/*mobile mag styling*/
+@media(min-width: 340px){
+  .second-magazine-homepage{
+    flex-direction: column;
+  }
+
+  .second-magazine-homepage .left-mag {
+    flex: 1;
+    height: auto;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .second-magazine-homepage .left-mag img {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .second-magazine-homepage .right-mag{
+    flex: 1;
+    height: auto;
+    text-align: center;
+    align-self: center;
+    padding: 1rem;
+  }
+
+  .desc{
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  a.mag-button{
+    display: flex;
+    font-family: Helvetica;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -.15rem;
+    line-height: 2rem; /*4.5 vw 242.5% */
+    padding: 1rem 2rem;
+    margin: 2rem;
+    justify-content: center;
+    text-align: center;
+    margin-top: rem;
+    color: #000000;
+    background-color: white;
+    border: 1px solid black;
+    opacity: 80%;
+  }
 }
 
-.second-magazine-homepage .left-mag {
-  flex: 1;
-  height: auto;
-  text-align: center;
-  padding: 6rem;
-}
+/*desktop additional mag*/
+@media(min-width: 1024px) {
+  .second-magazine-homepage{
+    flex-direction: row;
+  }
+  .second-magazine-homepage .left-mag {
+    flex: 1;
+    height: auto;
+    text-align: center;
+    padding: 5rem;
+  }
 
-.second-magazine-homepage .left-mag img {
-  width: 100%;
-  height: auto;
-  flex-direction: column;
-}
+  .second-magazine-homepage .left-mag img {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
 
-.second-magazine-homepage .right-mag{
-  flex: 1;
-  height: auto;
-  text-align: right;
-  align-self: center;
-  padding: 6rem;
-}
+  .second-magazine-homepage .right-mag{
+    flex: 1;
+    height: auto;
+    text-align: right;
+    align-self: center;
+    padding: 5rem;
+  }
 
-.desc{
-  font-family: 'Helvetica', sans-serif;
-  font-weight: 500;
-  font-size: 2.5rem;
-  letter-spacing: -.15rem;
-}
+  .desc{
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    letter-spacing: -.15rem;
+  }
 
-a.mag-button{
+.mag-button{
   display: flex;
   font-family: Helvetica;
   font-size: 2rem;
@@ -1044,16 +1092,14 @@ a.mag-button{
   letter-spacing: -.15rem;
   line-height: 2rem; /*4.5 vw 242.5% */
   padding: 2rem 3rem;
-  margin: 2rem;
-  justify-content: center;
+  justify-content: left;
   text-align: center;
-  margin-top: 2rem;
   color: #000000;
   background-color: white;
   border: 1px solid black;
   opacity: 80%;
 }
-
+}
 /*fade in animation*/
 /*https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m*/
 
