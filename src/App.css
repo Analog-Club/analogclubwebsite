@@ -630,7 +630,9 @@ ul {
 .embla__viewport{
   overflow: visible !important;
 }
+
 /* home page */
+
 .magazine-home .fix-position {
   position: flex;
 }
@@ -654,7 +656,8 @@ ul {
 }
 
 .magazine-home img {
-  width: 100vw;
+  width: 46.7vw;
+  
 }
 
 .home-img {
@@ -780,6 +783,343 @@ ul {
   justify-content: center;
   z-index: 1;
 }
+
+/* magazine doohicky */
+.magazine-homee{
+  width: 100%;
+  height: fit-content;
+  line-height: 1;
+  align-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 320px) {
+/*mobile design (default)*/
+.magazine-homee{
+  flex-direction: column;
+  font-family: Helvetica;
+}
+
+.left-magazine-homee {
+  flex-direction: column;
+  text-align: center;
+  padding: 3rem;
+}
+
+.mag-title, h2, .issue{
+  font-size: 8vw; 
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  line-height: 2rem;
+  padding-right: .75rem;
+  letter-spacing: -.1rem;
+}
+
+.left-magazine-homee .issue{
+  line-height: .8;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-left: .5rem;
+  color: rgb(119, 119, 119);
+}
+
+.left-magazine-homee .mag-title{
+  line-height: .8;
+  font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: -.6rem;
+}
+
+.left-magazine-homee .price{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: -5rem;
+}
+.left-magazine-homee .price-mag{
+    font-family: 'Courier New';
+    font-weight: 500;
+    font-size: 2rem;
+    color: black;
+    text-align: left;
+}
+
+.left-magazine-homee .price p{
+  font-family:'Courier New';
+  font-size: 1rem;
+  display: none;
+  color: grey;
+}
+
+.right-magazine-homee{
+  padding: 3rem;
+  margin-bottom: -4rem;
+}
+
+.right-magazine-homee img, .explore-mag{
+  max-width: 100%;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-magazine-homee .explore-mag{
+  font-size: 1rem;
+  text-decoration: underline;
+  margin-top: -.001rem;
+  letter-spacing: -.05vw;
+}
+
+/*avaliable until*/
+.right-magazine-homee p {
+  text-align: right;
+  font-size: .75rem;
+  margin-top: -2rem;
+  padding-right: 2rem;
+}
+}
+
+/*desktop magazine promo*/
+@media (min-width: 1024px) {
+.magazine-homee{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.left-magazine-homee {
+  flex-direction: column;
+  text-align: left;
+  margin-top: 10rem;
+  padding: 5rem;
+}
+
+.mag-title, h2, .issue{
+  font-size: 8vw; 
+  margin-top: 1rem;
+  margin-bottom: .75rem;
+  line-height: 3rem;
+}
+
+.left-magazine-homee .issue{
+  text-align: left;
+  line-height: .8;
+  letter-spacing: -.15rem;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-left: .5rem;
+  color: rgb(119, 119, 119);
+}
+
+.left-magazine-homee .mag-title{
+  text-align: left;
+  line-height: .8;
+  letter-spacing: -1rem;
+  font-size: 8rem;
+}
+
+
+.left-magazine-homee .price-mag{
+    font-family: 'Courier New';
+    text-align: left;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-top: -.5rem;
+    color: black;
+}
+
+.right-magazine-homee{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.right-magazine-homee img{
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+}
+
+.right-magazine-homee .explore-mag{
+  height: auto;
+  text-align: right;
+  align-content: right;
+  font-size: .75rem;
+  text-decoration: underline;
+  margin-top: -1.5rem;
+  letter-spacing: -.05vw;
+
+}
+
+.right-magazine-homee .explore-mag:hover{
+  color: #B32906CC;
+  transition-duration: .5s;
+}
+
+ .date-end{
+  font-size: .75rem;
+  text-align: center;
+}
+}
+
+.mag-button{
+  display: flex;
+  font-family: Helvetica;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -.15rem;
+  line-height: 2rem; /*4.5 vw 242.5% */
+  padding: 2rem 3rem;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  color: #000000;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 80%;
+}
+
+a.mag-button:hover{
+  background-color: #B32906CC;
+  color: white;
+  transition-duration: 0.5s; 
+}
+/* end of magazine doohicky */
+
+/* facess and places doohicky */
+
+/*basis of styling second mag page*/
+.second-magazine-homepage {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+  }
+
+/*mobile mag styling*/
+@media(min-width: 340px){
+  .second-magazine-homepage{
+    flex-direction: column;
+  }
+
+  .second-magazine-homepage .left-mag {
+    flex: 1;
+    height: auto;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .second-magazine-homepage .left-mag img {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .second-magazine-homepage .right-mag{
+    flex: 1;
+    height: auto;
+    text-align: center;
+    align-self: center;
+    padding: 1rem;
+  }
+
+  .desc{
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  a.mag-button{
+    display: flex;
+    font-family: Helvetica;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -.15rem;
+    line-height: 2rem; /*4.5 vw 242.5% */
+    padding: 1rem 2rem;
+    margin: 2rem;
+    justify-content: center;
+    text-align: center;
+    margin-top: rem;
+    color: #000000;
+    background-color: white;
+    border: 1px solid black;
+    opacity: 80%;
+  }
+}
+
+/*desktop additional mag*/
+@media(min-width: 1024px) {
+  .second-magazine-homepage{
+    flex-direction: row;
+  }
+  .second-magazine-homepage .left-mag {
+    flex: 1;
+    height: auto;
+    text-align: center;
+    padding: 5rem;
+  }
+
+  .second-magazine-homepage .left-mag img {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .second-magazine-homepage .right-mag{
+    flex: 1;
+    height: auto;
+    text-align: right;
+    align-self: center;
+    padding: 5rem;
+  }
+
+  .desc{
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    letter-spacing: -.15rem;
+  }
+
+.mag-button{
+  display: flex;
+  font-family: Helvetica;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -.15rem;
+  line-height: 2rem; /*4.5 vw 242.5% */
+  padding: 2rem 3rem;
+  justify-content: left;
+  text-align: center;
+  color: #000000;
+  background-color: white;
+  border: 1px solid black;
+  opacity: 80%;
+}
+}
+/*fade in animation*/
+/*https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m*/
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.fadeInUp-animation {
+  animation: 1.5s fadeInUp;
+}
+
+/* end of facess and places doohicky */
+
 
 .photowalk-home {
   display: flex;

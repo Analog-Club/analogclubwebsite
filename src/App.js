@@ -7,6 +7,7 @@ import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Events from './pages/Events';
 import Resources from './pages/Resources';
+import Magazine from './pages/Magazine';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/events" element={<Events />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/magazine" element={<Magazine />} />
         </Routes>
         <Footer />
       </BrowserRouter>
