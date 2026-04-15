@@ -1,0 +1,25 @@
+[
+    {
+        "name": "Analog Staff",
+        "photoUrl": "images/25_26_staff.jpg",
+        "alt":"16 people standing in a group photo"
+    },
+    {
+        "name": "Magazine Team",
+        "photoUrl": "images/25_26_mag_team.jpg",
+        "alt":"six people standing in a group photo",
+        "staff": "sharon, nithya, violet, tyler, ___, ben"
+    },
+    {
+        "name": "Marketing Team",
+        "photoUrl": "images/25_26_marketing_team.jpg",
+        "alt":"seven people standing in a group photo",
+        "staff": "____, germany, sidney, ethan, sophie, emma, ____"
+    },
+    {
+        "name": "Website Team",
+        "photoUrl": "images/25_26_website_team.jpg",
+        "alt":"seven people standing in a group photo",
+        "staff": "aliana, keren, chelsea, arona, tyler, craig, langston, eugene, ivonne"
+    }
+]

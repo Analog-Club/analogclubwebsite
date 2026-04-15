@@ -1,6 +1,8 @@
 .home-page {
   overflow: hidden;
+  cursor: url("../public/images/sunrise.png"), auto;
 }
+
 /* Navbar */
 .title-text {
   font-family: Futura, Helvetica, sans-serif;
@@ -209,13 +211,17 @@
   margin: 0.5rem;
 }
 
+.linked-resources{
+  color: black;
+}
+
 /* may want to move these up top after merging all pages */
 h1 {
   font-size: 3rem;
   font-family: Helvetica;
   font-style: normal;
   font-weight: 700;
-  letter-spacing: -0.1875rem;;
+  letter-spacing: -0.1875rem;
 }
 
 p {
@@ -244,18 +250,38 @@ p {
   object-fit: cover; /* Ensure the image scales without distortion */
 }
 
-.about-description {
-  flex: 1; /* Make the text take up the entire right side */
-  display: flex; /* Enable flexbox layout */
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center; /* Center text vertically within the section */
-  padding: 20px; /* Add padding inside the text section */
+/* .about-description {
+  flex: 1; Make the text take up the entire right side
+  display: flex; Enable flexbox layout
+  flex-direction: column; Stack items vertically
+  justify-content: center; Center text vertically within the section
+  padding: 20px; Add padding inside the text section
+} */
+
+.desc-photos{
+  padding-left: 30rem;
+  padding-right: 30rem;
 }
+
+/*what we do wrap textbox*/
+
+ .about-description {
+  display: flex;
+  flex-direction: row;
+ }
 
 /* .about-card-wrapper {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 } */
+
+/*staff card selection*/
+.about-card-photo-wrapper{
+  display: flex;
+  flex-direction: row;
+  width: 7rem;
+  height: 5rem;
+}
 
 .about-card-wrapper h2 {
   font-size: 1.5rem;
@@ -264,7 +290,7 @@ p {
 
 .staff-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-rows: repeat(2, 1fr); /*Two columns*/
   gap: 1.5rem; /* Spacing between items */
   flex: 1;
   padding-top: 50px;
@@ -272,7 +298,7 @@ p {
 
 .staff-member {
   display: flex;
-  flex-direction: column; /* Stack vertically */
+  flex-direction: row; /* Stack vertically */
   align-items: center;
   text-align: center;
 }

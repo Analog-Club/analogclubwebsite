@@ -1,6 +1,15 @@
+import {StaffCard} from '../pages/StaffCard.js';
 export function About() {
   const data = require('../data/about.json');
-  const staff = require('../data/staff.json');
+  const staff = require('../data/25_26_staff.json');
+
+  const currPhoto = staff.map((member, i) => (
+    <div key={i}>
+      <div className="about-card-photo-wrapper">
+        <img src={member.photoUrl} alt={member.alt}/>
+      </div>
+    </div>
+  ));
 
   const aboutCardList = Object.keys(data).map((index) => {
     return (
@@ -17,27 +26,31 @@ export function About() {
     );
   });
 
-  const staffCards = staff.map((member, i) => (
-    <div key={i} className="staff-member">
-      <img src={member.photoUrl} alt={member.name} />
-      <div className="staff-info">
-        <h3>{member.name}</h3>
-        <p>{member.role}</p>
-      </div>
-    </div>
-  ));
+  // const staffCards = staff.map((member, i) => (
+  //   <div key={i} /*className="staff-member"*/>
+  //     <div className="about-card-photo-wrapper">
+  //       <img src={member.photoUrl} alt={member.name} />
+  //     </div>
+  //     <div className="a">
+  //       {/* <h3>{member.name}</h3> */}
+  //       {/* <p>{member.role}</p> */}
+  //     </div>
+  //   </div>
+  // ));
 
   return (
-    <div className="about-page"> 
-      {/* Left Side: Staff Photos */}
-      <div className="about-image staff-container">
-        {staffCards}
-      </div>
+    <div className="a">
+      <div className="desc-photos">
+        {/* Left Side: Staff Photos */}
+        <div className="about-image about-card-photo-wrapper"> 
+          {StaffCard}
+        </div>
 
-      {/* Right Side: Description */}
-      <div className="about-description">
-        {aboutCardList}
-      </div>
+        {/* Right Side: Description */}
+        <div className="about-description">
+          {aboutCardList}
+        </div>
+      </div> 
     </div>
   );
 }

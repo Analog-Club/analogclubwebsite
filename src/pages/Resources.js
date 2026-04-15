@@ -7,9 +7,9 @@ export function Resources() {
         <div key={data[index]} className='resource-card-wrapper'>
           <img src={data[index].photoUrl} alt ={data[index].title}/>
           <div className='resource-card-text-wrapper'>
-              <h1>
+              <h1><a href={data[index].linkResource} className="linked-resources">
                 {data[index].title}
-              </h1>
+              </a></h1>
               <p>
                 {data[index].desc}
               </p>
@@ -19,7 +19,7 @@ export function Resources() {
     )
   })
   return (
-    <div className="Resources page">
+    <div className="resrouces-page">
       {resourcesCardList}
     </div>
   );
