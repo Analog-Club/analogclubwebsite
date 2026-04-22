@@ -16,7 +16,7 @@ export default function Magazine(){
                     <p>AVALIABLE UNTIL 02/28/26</p>
                 </div> */}
                 <div className="left-mag">
-                    <img src={magazine.photoUrl} className="fadeInUp-animation"/>
+                    <img src={magazine.photoUrl} className="fadeInUp-animation" alt={magazine.alt}/>
                 </div>
             </div>
             <NavLink to="/home" className="redirect-container">🡸 BACK HOME</NavLink>
